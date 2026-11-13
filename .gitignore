@@ -1,0 +1,30 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Data files (Never commit raw datasets or huge parquet files)
+data/raw/
+data/processed/*.parquet
+data/processed/*.csv
+*.zip
+*.tar.gz
+
+# Outputs
+output/dashboards/*.pdf
+output/figures/*.png
+output/figures/*.pdf
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints
+
+# OS generated
+.DS_Store
+Thumbs.db

@@ -1,0 +1,4 @@
+TRANSACTION_TYPE_CODE,count,pct,med_amt,avg_amt,avg_participants,avg_fx_hops
+Direct,157808,63.12,3618.95,77458.02,2.0,0.84
+Indirect,81666,32.67,3631.98,76630.91,3.58,2.21
+Covered,10356,4.14,4516.92,94231.1,3.59,2.2
