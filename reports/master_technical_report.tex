@@ -809,11 +809,14 @@ To establish empirical proof that the reverse-engineered parameters accurately r
 % ==============================================================================
 % SECTION 7: PROPOSED DASHBOARD BLUEPRINT & ARCHITECTURE
 % ==============================================================================
+% ==============================================================================
+% SECTION 7: PROPOSED DASHBOARD BLUEPRINT & ARCHITECTURE
+% ==============================================================================
 \section{Proposed Dashboard Blueprint \& Architecture (8-Page Design)}
 
 To fulfill Deliverable 1 (Dashboard PDF containing 5 to 15 feature dashboards), this section provides the exhaustive, page-by-page operational blueprint for our team's \textbf{8-page standalone dashboard layout}. Aligned with our shared Google Colab analytical notebook (\texttt{UM\_Datathon\_Dashboards\_Completed.ipynb}), the 8 pages map directly to our team's three collaborative pillars: Pages 1--2 cover Zhi Yin's Valuation and FX Mechanics; Pages 3--5 cover Evan's Topology, Latency, and Temporal Congestion; and Pages 6--8 cover Joy's Routing Modality, Token Semantics, and Anomaly Signatures.
 
-Table~\ref{tab:dashboard_blueprint} presents the structural overview across all 8 pages, followed by detailed individual page specifications detailing reconstructed business rules, KPI metric cards, primary and baseline charts, interactive filter hooks, and banking rationales.
+Table~\ref{tab:dashboard_blueprint} presents the structural overview across all 8 pages, followed by detailed individual page specifications and the exact embedded python dashboard visual charts.
 
 \begin{table}[H]
 \centering\footnotesize
@@ -834,7 +837,7 @@ Table~\ref{tab:dashboard_blueprint} presents the structural overview across all 
 \end{tabularx}
 \end{table}
 
-\subsection{Detailed Page-by-Page Dashboard Specifications}
+\subsection{Detailed Page-by-Page Dashboard Specifications \& Embedded Visuals}
 
 \subsubsection{Dashboard Page 1: Valuation Dynamics \& The Log-Normal Ladder Law}
 \begin{itemize}
@@ -859,6 +862,13 @@ Table~\ref{tab:dashboard_blueprint} presents the structural overview across all 
     \item \textbf{Real-World Banking Rationale:} Consumer remittances reflect individual discretionary income (\$100--\$1,000); corporate payroll and merchant e-commerce reflect monthly employee salaries and bulk consumer retail goods (\$1,000--\$10,000); inter-enterprise B2B payments reflect commercial supply chain invoices, shipping container charters, and corporate treasury liquidity clearings (\$10,000--\$100,000+).
 \end{itemize}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.88\textwidth]{\figpath/fig_g1_amount.png}
+\caption{Dashboard Page 1 Visual: Valuation dynamics across counterparty tiers displaying logarithmic distributions and empirical median steps.}
+\label{fig:dash_p1}
+\end{figure}
+
 \subsubsection{Dashboard Page 2: Foreign Exchange Dynamics \& Triangulation}
 \begin{itemize}
     \item \textbf{Teammate Owner \& Pillar:} Lim Zhi Yin (Pillar 3: Valuation, Entities \& FX) $\bullet$ Google Colab Cells 21--22.
@@ -881,6 +891,13 @@ Table~\ref{tab:dashboard_blueprint} presents the structural overview across all 
     \item \textbf{Interactive Filter Hooks:} Origin Currency Filter, Destination Currency Filter, and Minimum Transaction Value Slicer.
     \item \textbf{Real-World Banking Rationale:} Global foreign exchange markets operate through vehicle currencies. Direct interbank order books exist only for deep currency pairs (e.g., EUR/USD, GBP/USD). Thin pairs (e.g., SEK to THB) lack direct market makers; banks must convert SEK $\to$ USD, then USD $\to$ THB, incurring multiple conversion hops.
 \end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.88\textwidth]{\figpath/fig_g6_fx.png}
+\caption{Dashboard Page 2 Visual: Currency conversion count breakdown ($0, 1, 2, 3, 4+$) and reserve currency turnover concentration.}
+\label{fig:dash_p2}
+\end{figure}
 
 \subsubsection{Dashboard Page 3: Corridor Topology \& Direct Routing Invariance}
 \begin{itemize}
@@ -905,6 +922,13 @@ Table~\ref{tab:dashboard_blueprint} presents the structural overview across all 
     \item \textbf{Real-World Banking Rationale:} Direct routing requires an active bilateral Relationship Management Application (RMA) key and reciprocal nostro/vostro funding accounts. Smaller tier-2 and tier-3 banks cannot maintain reciprocal capital in thousands of global banks; they maintain accounts with Tier-1 correspondent clearing hubs that route payments onward.
 \end{itemize}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.88\textwidth]{\figpath/fig_g3_topology.png}
+\caption{Dashboard Page 3 Visual: Interbank network topology showing participant count distribution ($N=2$ to $N=8$) and correspondent routing modalities.}
+\label{fig:dash_p3}
+\end{figure}
+
 \subsubsection{Dashboard Page 4: Settlement Latency \& Queuing Bottlenecks}
 \begin{itemize}
     \item \textbf{Teammate Owner \& Pillar:} Evan Lim (Pillar 2: Topology, Latency \& Traffic) $\bullet$ Google Colab Cells 16--17.
@@ -922,11 +946,18 @@ Table~\ref{tab:dashboard_blueprint} presents the structural overview across all 
         \item \textbf{FX Triangulation Penalty:} \textbf{+148 seconds} for $\ge 2$ conversions
         \item \textbf{Falsified NEG-01:} Physical Distance $r = 0.018$ ($p = 0.34$, 0\% impact)
     \end{enumerate}
-    \item \textbf{Primary Chart Visual:} Settlement duration waterfall chart decomposing baseline Straight-Through Processing (39\,s), incremental intermediary batch delays, and foreign exchange conversion penalties.
-    \item \textbf{Comparative Baseline Chart:} Scatter plot with linear regression line comparing great-circle physical distance (km) vs settlement duration (s), proving an empirically flat slope ($r=0.018$).
+    \item \textbf{Primary Chart Visual:} Line plot and grouped bar chart illustrating duration scaling as a function of participant institution counts ($N=2$ to $N=6$).
+    \item \textbf{Comparative Baseline Chart:} Grouped bar chart comparing settlement latency across foreign exchange conversion counts ($0, 1, 2+$ steps).
     \item \textbf{Interactive Filter Hooks:} FX Conversion Count Filter ($0, 1, 2+$), Modality Selector, and Operating Time-of-Day Slicer.
     \item \textbf{Real-World Banking Rationale:} Telecommunications signals cross the globe in milliseconds. Cross-border payment latency is driven by institutional batch cut-off schedules, nostro ledger reconciliation windows, and automated compliance/sanctions screening at each intermediary bank.
 \end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.88\textwidth]{\figpath/fig_g4_latency.png}
+\caption{Dashboard Page 4 Visual: Settlement latency scaling across participant hops and multi-currency conversion penalties.}
+\label{fig:dash_p4}
+\end{figure}
 
 \subsubsection{Dashboard Page 5: Temporal Rhythms \& Diurnal Cut-off Congestion}
 \begin{itemize}
@@ -951,6 +982,13 @@ Table~\ref{tab:dashboard_blueprint} presents the structural overview across all 
     \item \textbf{Real-World Banking Rationale:} Domestic Real-Time Gross Settlement (RTGS) systems such as Fedwire, CHIPS, TARGET2, and CHAPS operate on rigid business-hour schedules and cease commercial settlement on weekends. Cross-border traffic peaks when major global trading hubs overlap.
 \end{itemize}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.88\textwidth]{\figpath/fig_g2_temporal.png}
+\caption{Dashboard Page 5 Visual: Weekly volume concentration (85.2\% weekday share) and 24-hour UTC diurnal initiation curve.}
+\label{fig:dash_p5}
+\end{figure}
+
 \subsubsection{Dashboard Page 6: Routing Modality \& Covered Liquidity Thresholds}
 \begin{itemize}
     \item \textbf{Teammate Owner \& Pillar:} Joy \& Lim Zhi Yin (Pillars 1 \& 3) $\bullet$ Google Colab Cells 25--26.
@@ -973,6 +1011,13 @@ Table~\ref{tab:dashboard_blueprint} presents the structural overview across all 
     \item \textbf{Interactive Filter Hooks:} Minimum Transaction Amount Slicer, Corridor Selector.
     \item \textbf{Real-World Banking Rationale:} Under the cover payment method, the ordering bank must maintain liquidity reserves in a correspondent reimbursement bank. Because tying up capital in reimbursement accounts incurs liquidity and funding costs, banks only utilize the Covered method when transfer amounts are large enough to justify the liquidity allocation.
 \end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.88\textwidth]{\figpath/fig_g5_modality.png}
+\caption{Dashboard Page 6 Visual: Covered routing valuation premium (+24.8\%) and participant institution count threshold ($N \ge 3$).}
+\label{fig:dash_p6}
+\end{figure}
 
 \subsubsection{Dashboard Page 7: Token Semantics \& Zero-Leakage Corporate Gating}
 \begin{itemize}
@@ -997,6 +1042,13 @@ Table~\ref{tab:dashboard_blueprint} presents the structural overview across all 
     \item \textbf{Real-World Banking Rationale:} Financial institutions legally segregate retail individuals from registered corporate entities. Automated payment engines enforce distinct identifier and format rules (ISO 13616 IBAN for SEPA jurisdictions vs Fedwire routing numbers for US accounts).
 \end{itemize}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.88\textwidth]{\figpath/fig_g7_tokens.png}
+\caption{Dashboard Page 7 Visual: Zero-leakage corporate token gating ($P=0.0000$) and geographic SEPA IBAN standard distribution.}
+\label{fig:dash_p7}
+\end{figure}
+
 \subsubsection{Dashboard Page 8: 100\% Census Anomaly \& Fraud Profiling}
 \begin{itemize}
     \item \textbf{Teammate Owner \& Pillar:} Joy (Pillar 1: Macro Ecosystem \& Fraud Profiling) $\bullet$ Google Colab Cells 9--10.
@@ -1020,21 +1072,26 @@ Table~\ref{tab:dashboard_blueprint} presents the structural overview across all 
     \item \textbf{Real-World Banking Rationale:} Financial fraud typologies reflect human behavioral patterns and compliance friction: Romance fraud targets individual consumers whose unusual cross-border transfers trigger AML investigation holds; CEO scams target corporate finance departments with urgent high-value wire transfers; fat-finger errors represent clerical decimal point slips.
 \end{itemize}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.88\textwidth]{\figpath/fig_g8_anomalies.png}
+\caption{Dashboard Page 8 Visual: Census breakdown of all 7,006 anomalies and deterministic entity conditioning (Consumer vs Business).}
+\label{fig:dash_p8}
+\end{figure}
+
 % ==============================================================================
 % SECTION 8: PROPOSED SLIDE NOTES & COMPLETE PRESENTATION SCRIPT
 % ==============================================================================
 \section{Proposed Slide Notes, Visual Layouts \& Complete Presentation Script}
 
-This section provides the slide-by-slide production blueprint, visual layout instructions, word-for-word spoken scripts (timed for an 11-minute presentation), and pre-emptive judge Q\&A defense responses for our team's \textbf{15-slide preliminary deck}.
+This section provides the slide-by-slide production blueprint, visual layout instructions, word-for-word spoken scripts (timed for an 11-minute presentation), pre-emptive judge Q\&A defense responses, and the exact embedded visual charts and vector diagrams for our team's \textbf{15-slide preliminary deck}.
 
-\subsection{Slide-by-Slide Presentation Guide, Spoken Scripts \& Q\&A Defense}
+\subsection{Slide-by-Slide Presentation Guide, Spoken Scripts \& Embedded Visuals}
 
 \subsubsection{Slide 1: Title \& Strategic Overview}
 \begin{itemize}
     \item \textbf{Storyline Role:} Executive introduction, challenge mandate framing, and team positioning.
     \item \textbf{Visual Layout:} Dark Swift Navy corporate background; clean white serif typography; partner logos (UMDAC \& Swift); metadata callout box.
-    \item \textbf{Diagram to Display:} Official UMDAC/Swift Competition Header and Tripartite Team Architecture Badge.
-    \item \textbf{Reconstructed Rules / Core Insight:} Overview of the procedural generative architecture cracking 10M synthetic payments.
     \item \textbf{Presenter Spoken Script (30 Seconds):}
     \textit{``Good day, esteemed judges and members of the panel. Today, our team is proud to present our reverse-engineering of the Swift synthetic cross-border payment graph. Tasked with reconstructing the generative logic behind 10 million transactions, our team did not settle for simple statistical correlations. Instead, we reverse-engineered the underlying causal Directed Acyclic Graph, cracked the closed-form parametric equations governing payment amounts and latency, and built an executable Generative Twin simulator that reproduces ground-truth behavior with over 92\% statistical fidelity. Let us walk you through our findings.''}
     \item \textbf{Anticipated Judge Q\&A \& Defense:}
@@ -1044,12 +1101,27 @@ This section provides the slide-by-slide production blueprint, visual layout ins
     \end{itemize}
 \end{itemize}
 
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    scale=0.88, transform shape,
+    box/.style={rectangle, rounded corners=4pt, draw=SwiftNavy, line width=0.9pt, fill=white, font=\small\hyphenpenalty=10000, inner sep=8pt, align=center, text=DarkSlate}
+]
+  \node[box, fill=SwiftLight, draw=SwiftBlue, line width=1.1pt, text width=15cm] (header) at (0, 0) {
+    {\large\textbf{\color{SwiftNavy} UMDAC Datathon 2026: Swift Payments Reverse-Engineering}}\\[4pt]
+    {\normalsize\textbf{\color{SwiftSky} 10,000,000 Synthetic Transactions $\bullet$ Causal Graph Reconstruction $\bullet$ Preliminary Submission}}\\[6pt]
+    \footnotesize\textbf{Team Members:} Evan Lim (Evan's Corridor), Lim Zhi Yin (Zhi Yin's Valuation), Joy (Joy's Kopitiam)\\[3pt]
+    \footnotesize\textbf{Dataset Scope:} 4.72\,GB Raw CSV $\bullet$ Snappy/ZSTD Parquet $\bullet$ 21 Features $\bullet$ DuckDB 2.0 In-Memory Engine
+  };
+\end{tikzpicture}
+\caption{Slide 1 Visual: Official Competition Metadata, Team Roster, and Scope Card.}
+\label{fig:slide1_vis}
+\end{figure}
+
 \subsubsection{Slide 2: Executive Summary \& The Tripartite Architecture}
 \begin{itemize}
     \item \textbf{Storyline Role:} Tripartite team division, high-throughput pipeline, and architectural roadmap.
-    \item \textbf{Visual Layout:} Split-screen layout. Left: Three modular pillar summary cards. Right: The high-resolution pipeline flowchart (Figure~\ref{fig:colab_pipeline}).
-    \item \textbf{Diagram to Display:} Figure~\ref{fig:colab_pipeline} (Tripartite Collaborative Architecture \& Google Colab Pipeline).
-    \item \textbf{Reconstructed Rules / Core Insight:} Organization of the 8 feature groups across Joy (Observability \& Fraud), Evan (Topology \& Latency), and Zhi Yin (Valuation \& FX).
+    \item \textbf{Visual Layout:} Split-screen layout. Left: Three modular pillar summary cards. Right: The high-resolution pipeline flowchart.
     \item \textbf{Presenter Spoken Script (45 Seconds):}
     \textit{``To conquer 10 million transactions with absolute statistical rigor, our team established a Tripartite Collaborative Architecture executed via an in-memory DuckDB engine in Google Colab. As shown in our architecture flowchart, we divided the 8 feature groups into three specialized pillars: Joy investigated the Macro Ecosystem and Anomaly Profiling; Evan cracked Corridor Topology and Latency Queuing; and Zhi Yin solved Valuation Dynamics and FX Mechanics. By streaming columnar Parquet data directly into CPU cache, every single calculation executes in under 0.4 seconds without memory spill.''}
     \item \textbf{Anticipated Judge Q\&A \& Defense:}
@@ -1059,12 +1131,42 @@ This section provides the slide-by-slide production blueprint, visual layout ins
     \end{itemize}
 \end{itemize}
 
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    scale=0.88, transform shape,
+    card/.style={rectangle, rounded corners=4pt, line width=0.9pt, font=\scriptsize\hyphenpenalty=10000, inner sep=6pt, text=DarkSlate, text width=4.6cm, minimum height=2.8cm, align=left}
+]
+  \node[card, fill=purple!10, draw=purple!80!black] (p1) at (0, 0) {
+    \textbf{\color{purple!90!black}\normalsize 1. Joy's Kopitiam}\\[2pt]
+    \textbf{Macro \& Fraud Profiling}\\[3pt]
+    $\bullet$ G3 Route continuity \& 22 hops\\[2pt]
+    $\bullet$ G7 Zero corporate leakage ($P=0$)\\[2pt]
+    $\bullet$ G8 100\% anomaly census (7,006 rows)
+  };
+  \node[card, fill=blue!10, draw=SwiftBlue] (p2) at (5.2, 0) {
+    \textbf{\color{SwiftBlue}\normalsize 2. Evan's Corridor}\\[2pt]
+    \textbf{Topology \& Queuing Dynamics}\\[3pt]
+    $\bullet$ G3 Direct invariance ($N=2.0$)\\[2pt]
+    $\bullet$ G4 Additive queuing delay law\\[2pt]
+    $\bullet$ G2 Weekday peak \& diurnal cut-offs
+  };
+  \node[card, fill=teal!10, draw=teal!80!black] (p3) at (10.4, 0) {
+    \textbf{\color{teal!90!black}\normalsize 3. Zhi Yin's Valuation}\\[2pt]
+    \textbf{Valuation, Entities \& FX}\\[3pt]
+    $\bullet$ G1 Log-Normal ladder ($+2.0$ step)\\[2pt]
+    $\bullet$ G6 Reserve duopoly (EUR, USD)\\[2pt]
+    $\bullet$ G5 Covered routing liquidity premium
+  };
+\end{tikzpicture}
+\caption{Slide 2 Visual: Tripartite Architecture Summary Card spanning all 8 feature groups.}
+\label{fig:slide2_vis}
+\end{figure}
+
 \subsubsection{Slide 3: Analytical Methodology \& Scalable Vectorized Engine}
 \begin{itemize}
     \item \textbf{Storyline Role:} Technical methodology, data infrastructure, and justified simplicity under Rubric 3.3.
     \item \textbf{Visual Layout:} 4-quadrant grid: (1) Vectorized Parquet Migration; (2) 100\% Anomaly Census Extraction; (3) Hash-Stratified Sampling; (4) Maximum Likelihood Estimation.
-    \item \textbf{Diagram to Display:} Columnar data ingestion pipeline schematic.
-    \item \textbf{Reconstructed Rules / Core Insight:} Methodological rigor, zero OOM errors, and sub-second query latency across 10 million records.
     \item \textbf{Presenter Spoken Script (45 Seconds):}
     \textit{``Our methodology was built for both scale and rigor. First, we migrated the uncompressed 4.72\,GB dataset into columnar ZSTD Parquet, extracting 100\% of the rare anomalies into an isolated table and generating a 250,000-row deterministic hash sample for instantaneous queries. Second, following Rubric 3.3, we deliberately prioritized justified simplicity over uninterpretable black-box algorithms. We fitted closed-form parametric equations using Maximum Likelihood Estimation and rigorously controlled for confounding variables, ensuring every single claim is traceable to an empirical calculation.''}
     \item \textbf{Anticipated Judge Q\&A \& Defense:}
@@ -1074,12 +1176,42 @@ This section provides the slide-by-slide production blueprint, visual layout ins
     \end{itemize}
 \end{itemize}
 
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    >=Stealth,
+    scale=0.85, transform shape,
+    stepbox/.style={rectangle, rounded corners=4pt, draw=SwiftNavy, line width=0.9pt, fill=LightSlate, font=\scriptsize\hyphenpenalty=10000, inner sep=5pt, text=DarkSlate, text width=3.3cm, minimum height=1.6cm, align=center}
+]
+  \node[stepbox, fill=blue!10, draw=SwiftBlue] (s1) at (0, 0) {
+    \textbf{1. Parquet Migration}\\[2pt]
+    4.72\,GB raw CSV converted to 1.2\,GB ZSTD Parquet via DuckDB. Zero memory spill.
+  };
+  \node[stepbox, fill=purple!10, draw=purple!80!black] (s2) at (4.0, 0) {
+    \textbf{2. 100\% Anomaly Table}\\[2pt]
+    All 7,006 rare anomalies isolated to dedicated table (706\,KB). Eliminates sampling bias.
+  };
+  \node[stepbox, fill=teal!10, draw=teal!80!black] (s3) at (8.0, 0) {
+    \textbf{3. Hash Stratification}\\[2pt]
+    250,000-row deterministic sample via modular hash streaming for instant visualization.
+  };
+  \node[stepbox, fill=green!10, draw=SuccessGreen] (s4) at (12.0, 0) {
+    \textbf{4. MLE Closed-Form}\\[2pt]
+    Parametric MLE calibration ($\mu, \sigma, \beta_{\text{hop}}$). Traceable equations, zero black-box.
+  };
+
+  \draw[->, very thick, color=SwiftNavy] (s1) -- (s2);
+  \draw[->, very thick, color=SwiftNavy] (s2) -- (s3);
+  \draw[->, very thick, color=SwiftNavy] (s3) -- (s4);
+\end{tikzpicture}
+\caption{Slide 3 Visual: Four-Stage High-Performance Analytical Methodology Pipeline.}
+\label{fig:slide3_vis}
+\end{figure}
+
 \subsubsection{Slide 4: Hypothesis Ledger \& Tested Negative Results (Rubric 1.3)}
 \begin{itemize}
     \item \textbf{Storyline Role:} Scientific falsification framework, negative result reporting, and distance refutation.
     \item \textbf{Visual Layout:} Structured table displaying Confirmed Hypotheses vs. the four Tested and Rejected Negative Results (Table~\ref{tab:hypothesis_ledger}).
-    \item \textbf{Diagram to Display:} Table~\ref{tab:hypothesis_ledger} with callout box on NEG-01 (falsifying geographic distance).
-    \item \textbf{Reconstructed Rules / Core Insight:} Proving that physical distance has zero correlation ($r=0.018$) with settlement duration.
     \item \textbf{Presenter Spoken Script (60 Seconds):}
     \textit{``Under Rubric 1.3, sound scientific methodology requires proving not only what the data shows, but also testing and reporting what does not hold. On this slide, we document four explicit negative results. Most notably, we tested whether physical geographic distance between countries drives settlement latency. The correlation was virtually zero ($r=0.018$). A payment from New York to London settles in 39 seconds, while a payment from Paris to Frankfurt with 4 banks takes over 1,000 seconds. Geographic distance has zero causal effect; network routing hops and batch clearing windows explain 100\% of latency variance.''}
     \item \textbf{Anticipated Judge Q\&A \& Defense:}
@@ -1089,12 +1221,36 @@ This section provides the slide-by-slide production blueprint, visual layout ins
     \end{itemize}
 \end{itemize}
 
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    scale=0.85, transform shape,
+    card/.style={rectangle, rounded corners=4pt, line width=0.9pt, font=\scriptsize\hyphenpenalty=10000, inner sep=6pt, text=DarkSlate, text width=6.8cm, minimum height=2.4cm, align=left}
+]
+  \node[card, fill=green!10, draw=SuccessGreen] (conf) at (0, 0) {
+    \textbf{\color{SuccessGreen}\normalsize Confirmed Generative Laws (HYP-01 to HYP-04)}\\[3pt]
+    $\bullet$ \textbf{HYP-01:} Log-amount shifts by $+2.0$ ladder per tier ($p < 10^{-16}$).\\[2pt]
+    $\bullet$ \textbf{HYP-02:} Direct routing strictly invariant ($\text{Direct} \iff N=2.0$).\\[2pt]
+    $\bullet$ \textbf{HYP-03:} Covered method carries $+24.8\%$ valuation premium.\\[2pt]
+    $\bullet$ \textbf{HYP-04:} Fraud typologies adhere to 100\% entity boundaries.
+  };
+  
+  \node[card, fill=red!10, draw=AlertRed] (rej) at (7.8, 0) {
+    \textbf{\color{AlertRed}\normalsize Tested \& Falsified Negatives (NEG-01 to NEG-04)}\\[3pt]
+    $\bullet$ \textbf{NEG-01:} Distance vs Latency $r=0.018$ ($p=0.34$, rejected).\\[2pt]
+    $\bullet$ \textbf{NEG-02:} FX conversion count vs Amount ANOVA $p=0.58$ (rejected).\\[2pt]
+    $\bullet$ \textbf{NEG-03:} Covered utilized for retail remittances (0.0\%, rejected).\\[2pt]
+    $\bullet$ \textbf{NEG-04:} Broken paths (\texttt{QFLAG=N}) incur higher latency (rejected).
+  };
+\end{tikzpicture}
+\caption{Slide 4 Visual: The Hypothesis Register comparing confirmed laws against falsified negative hypotheses.}
+\label{fig:slide4_vis}
+\end{figure}
+
 \subsubsection{Slide 5: Data Integrity, Issues Log \& Sensitivity Analysis (Rubric 3.1)}
 \begin{itemize}
     \item \textbf{Storyline Role:} Data preparation audit, edge case resolution, and modeling sensitivity checks.
     \item \textbf{Visual Layout:} Formatted audit table documenting ISS-01 through ISS-05, mitigation actions, and sensitivity checks (Table~\ref{tab:data_issues}).
-    \item \textbf{Diagram to Display:} Table~\ref{tab:data_issues} (Data Integrity \& Cleaning Audit Log).
-    \item \textbf{Reconstructed Rules / Core Insight:} 100\% record retention via RFC 4180 parsing; isolation of masked routes and fat-finger outliers.
     \item \textbf{Presenter Spoken Script (45 Seconds):}
     \textit{``Rubric 3.1 rewards a documented data preparation log. We resolved five critical data challenges: first, embedded multiline newlines in party details broke naive CSV parsers, which we resolved using strict RFC 4180 parsing in DuckDB to achieve zero record loss across all 10 million rows. Second, we isolated 12.4\% of paths with placeholder dots as an explicit continuity feature. Third, we isolated \$15-billion fat-finger outliers to prevent skewing baseline parametric fits. Every cleaning decision was tested for sensitivity to ensure our models remain robust.''}
     \item \textbf{Anticipated Judge Q\&A \& Defense:}
@@ -1104,12 +1260,29 @@ This section provides the slide-by-slide production blueprint, visual layout ins
     \end{itemize}
 \end{itemize}
 
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    scale=0.85, transform shape,
+    issuebox/.style={rectangle, rounded corners=4pt, draw=SwiftBlue, line width=0.8pt, fill=LightSlate, font=\scriptsize\hyphenpenalty=10000, inner sep=5pt, text=DarkSlate, text width=14.8cm, align=left}
+]
+  \node[issuebox] (box) at (0, 0) {
+    \textbf{\normalsize Data Integrity Resolution Pipeline (Rubric 3.1 Compliance)}\\[3pt]
+    $\bullet$ \textbf{ISS-01 (Multiline Strings):} RFC 4180 parsing in DuckDB enabled 100\% record retention (10,000,000 rows).\\[2pt]
+    $\bullet$ \textbf{ISS-02 (Header Disclaimer):} Row 1 synthetic notice excluded from features; zero transactional data lost.\\[2pt]
+    $\bullet$ \textbf{ISS-03 (Masked Routes):} 12.4\% masked routes (\texttt{...}) isolated under \texttt{CONTINUITY\_QFLAG = 'N'}.\\[2pt]
+    $\bullet$ \textbf{ISS-04 (Extreme Outliers):} \$15.66B decimal shifts isolated under \texttt{FAT\_FINGER\_MISTAKE}.\\[2pt]
+    $\bullet$ \textbf{ISS-05 (Zero-Duration):} $\log(1 + \text{duration})$ formulation resolved $\ln(0)$ singularities.
+  };
+\end{tikzpicture}
+\caption{Slide 5 Visual: Data Preparation and Edge-Case Integrity Resolution Summary.}
+\label{fig:slide5_vis}
+\end{figure}
+
 \subsubsection{Slide 6: Feature Group 1 --- Valuation Dynamics (Log-Normal Ladder)}
 \begin{itemize}
     \item \textbf{Storyline Role:} Valuation mechanics, institutional counterparty tiers, and closed-form equations.
     \item \textbf{Visual Layout:} Left: Reconstructed rule formula and economic rationale. Right: Dual chart showing median amounts and fitted $\mu$ parameter ladder.
-    \item \textbf{Diagram to Display:} Figure~\ref{fig:amount_kde} (Continuous probability density curves across counterparty pairs).
-    \item \textbf{Reconstructed Rules / Core Insight:} Closed-form Log-Normal distribution with $+2.0$ discrete location shifts ($7.39\times$ step multiplier).
     \item \textbf{Presenter Spoken Script (45 Seconds):}
     \textit{``Turning to our first feature group: transaction valuation. We discovered that payment sizes follow a segmented Log-Normal distribution with an identical standard deviation of $\sigma = 2.29$ across all corridors. What changes is the location parameter $\mu$, which forms an exact $+2.0$ ladder: consumer remittances have $\mu = 6.0$; corporate payroll and commerce have $\mu = 8.0$; and institutional B2B wholesale settlement has $\mu = 10.0$. Each step up the counterparty ladder multiplies median transaction size by exactly 7.39 times, reflecting commercial purchasing power parity.''}
     \item \textbf{Anticipated Judge Q\&A \& Defense:}
@@ -1119,12 +1292,17 @@ This section provides the slide-by-slide production blueprint, visual layout ins
     \end{itemize}
 \end{itemize}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.82\textwidth]{\figpath/fig_entity_amount_distribution.png}
+\caption{Slide 6 Visual: Continuous Log-Normal density curves across counterparty tiers showing exact $+2.0$ discrete shifts.}
+\label{fig:slide6_vis}
+\end{figure}
+
 \subsubsection{Slide 7: Feature Group 2 --- Temporal Dynamics \& Clearing Windows}
 \begin{itemize}
     \item \textbf{Storyline Role:} Temporal rhythm analysis, weekday RTGS concentration, and diurnal peak windows.
     \item \textbf{Visual Layout:} Left: Weekday vs. weekend traffic rules. Right: Weekly bar chart and 24-hour UTC diurnal initiation curve.
-    \item \textbf{Diagram to Display:} Figure~\ref{fig:temporal_patterns} (Weekly distribution and 24-hour UTC diurnal initiation curve).
-    \item \textbf{Reconstructed Rules / Core Insight:} 85.2\% weekday volume; Friday peak (18.4\%); 23:00--01:00 UTC diurnal clearing peak.
     \item \textbf{Presenter Spoken Script (45 Seconds):}
     \textit{``Our second feature group analyzes transaction timing. Payment initiation is strictly non-uniform: 85.2\% of payments occur on weekdays, peaking on Friday at 18.4\%, while Sunday drops to just 5.5\%. Diurnal traffic peaks between 23:00 and 01:00 UTC. This mirrors real-world financial market infrastructures: domestic RTGS systems like Fedwire, CHIPS, and TARGET2 suspend commercial settlement over weekends, while cross-border liquidity peaks as Asian markets open and European banks begin pre-market netting.''}
     \item \textbf{Anticipated Judge Q\&A \& Defense:}
@@ -1134,12 +1312,17 @@ This section provides the slide-by-slide production blueprint, visual layout ins
     \end{itemize}
 \end{itemize}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{\figpath/fig_g2_temporal.png}
+\caption{Slide 7 Visual: Weekly transaction volume and 24-hour diurnal initiation curve.}
+\label{fig:slide7_vis}
+\end{figure}
+
 \subsubsection{Slide 8: Feature Group 3 --- Network Topology \& Direct Routing Invariance}
 \begin{itemize}
     \item \textbf{Storyline Role:} Interbank network topology, correspondent clearing backbone, and RMA links.
     \item \textbf{Visual Layout:} Left: Direct routing invariant equation and correspondent hub rules. Right: Participant hop count distribution and modality donut chart.
-    \item \textbf{Diagram to Display:} Figure~\ref{fig:topology_charts} (Participant hop count distribution and modality breakdown).
-    \item \textbf{Reconstructed Rules / Core Insight:} Invariant Direct condition ($\text{Direct} \iff N=2.0$, 63.1\%); Tier-1 clearing hubs (\texttt{US30}, \texttt{GB20}, \texttt{DEF0}).
     \item \textbf{Presenter Spoken Script (45 Seconds):}
     \textit{``In Feature Group 3, we reverse-engineered the interbank network topology. We uncovered an absolute mathematical invariant: Direct routing occurs if and only if participant count equals exactly 2 institutions. Direct settlement represents 63.1\% of volume. The remaining 36.9\% involves multi-hop correspondent clearing through major Tier-1 clearing hubs in New York, London, and Frankfurt. In banking terms, direct routing requires bilateral RMA account keys; when banks lack mutual accounts, they must route through global correspondent clearing intermediaries.''}
     \item \textbf{Anticipated Judge Q\&A \& Defense:}
@@ -1149,12 +1332,17 @@ This section provides the slide-by-slide production blueprint, visual layout ins
     \end{itemize}
 \end{itemize}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{\figpath/fig_g3_topology.png}
+\caption{Slide 8 Visual: Participant count distribution and correspondent routing modality breakdown.}
+\label{fig:slide8_vis}
+\end{figure}
+
 \subsubsection{Slide 9: Feature Group 4 --- Settlement Latency \& Operational Queues}
 \begin{itemize}
     \item \textbf{Storyline Role:} Settlement velocity deconstruction, Straight-Through Processing, and queueing penalties.
     \item \textbf{Visual Layout:} Left: Additive latency formula. Right: Dual chart of latency vs. participant hops and FX delay penalties.
-    \item \textbf{Diagram to Display:} Figure~\ref{fig:latency_waterfall} (Decomposition of additive settlement latency).
-    \item \textbf{Reconstructed Rules / Core Insight:} Baseline STP (39\,s); $+300\text{--}400$\,s delay per intermediary bank; $+148$\,s FX penalty.
     \item \textbf{Presenter Spoken Script (45 Seconds):}
     \textit{``Our fourth feature group deconstructs settlement duration. Total duration is governed by an additive latency formula: direct payments achieve automated Straight-Through Processing with a median latency of just 39 seconds. However, each additional intermediary correspondent institution adds 300 to 400 seconds of batch-clearing delay. Furthermore, transactions requiring two or more foreign exchange conversions suffer an additional 148-second delay due to interbank currency settlement windows.''}
     \item \textbf{Anticipated Judge Q\&A \& Defense:}
@@ -1164,12 +1352,17 @@ This section provides the slide-by-slide production blueprint, visual layout ins
     \end{itemize}
 \end{itemize}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.82\textwidth]{\figpath/fig_duration_waterfall.png}
+\caption{Slide 9 Visual: Additive duration waterfall decomposing STP baseline, hop queuing, and FX delays.}
+\label{fig:slide9_vis}
+\end{figure}
+
 \subsubsection{Slide 10: Feature Group 5 --- Routing Modality \& Covered Settlement}
 \begin{itemize}
     \item \textbf{Storyline Role:} Split-messaging mechanics, MT103 vs MT202 COV, and liquidity threshold rules.
     \item \textbf{Visual Layout:} Left: Covered payment trigger rules and economic mechanism. Right: Comparative median amount and institution count bar charts.
-    \item \textbf{Diagram to Display:} Figure~\ref{fig:modality_charts} (Covered payment value premium and hop requirements) and Figure~\ref{fig:settlement_modalities}.
-    \item \textbf{Reconstructed Rules / Core Insight:} Strictly $N \ge 3$ institutions (0\% Direct); $+24.8\%$ median transaction value premium (\$4,517 vs \$3,619).
     \item \textbf{Presenter Spoken Script (45 Seconds):}
     \textit{``In Feature Group 5, we examined transaction routing modalities. Covered payments (MT103 paired with MT202 COV) are subject to two strict operational rules: first, they strictly require 3 or more institutions and never occur on direct routes. Second, Covered payments command a 24.8\% higher median transaction value (\$4,517 vs. \$3,619). Economically, banks only deploy cover-method split-messaging when transaction amounts are large enough to justify allocating liquidity reserves in correspondent reimbursement accounts.''}
     \item \textbf{Anticipated Judge Q\&A \& Defense:}
@@ -1179,12 +1372,17 @@ This section provides the slide-by-slide production blueprint, visual layout ins
     \end{itemize}
 \end{itemize}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{\figpath/fig_g5_modality.png}
+\caption{Slide 10 Visual: Covered payment valuation premium and institution count profile.}
+\label{fig:slide10_vis}
+\end{figure}
+
 \subsubsection{Slide 11: Feature Group 6 --- FX Dynamics \& Vehicle Currencies}
 \begin{itemize}
     \item \textbf{Storyline Role:} Foreign exchange dynamics, vehicle currency triangulation, and reserve currency dominance.
     \item \textbf{Visual Layout:} Left: FX conversion count breakdown rules. Right: Conversion count distribution and top currency market share bar chart.
-    \item \textbf{Diagram to Display:} Figure~\ref{fig:fx_charts} (Conversion count breakdown and top settlement currencies).
-    \item \textbf{Reconstructed Rules / Core Insight:} Reserve duopoly (EUR+USD 49.3\% volume); 30.4\% triangulated routes ($\ge 2$ FX steps).
     \item \textbf{Presenter Spoken Script (45 Seconds):}
     \textit{``Feature Group 6 investigates foreign exchange. In 10.9\% of cases, zero conversions occur because the currency matches the native corridor. In 58.7\% of cases, a single bilateral conversion occurs. Crucially, 30.4\% of transactions undergo two or more conversions. This reflects global currency vehicle routing: illiquid currency pairs lack bilateral market quotes and must triangulate through USD or EUR, which together command 49.3\% of total network volume.''}
     \item \textbf{Anticipated Judge Q\&A \& Defense:}
@@ -1194,12 +1392,17 @@ This section provides the slide-by-slide production blueprint, visual layout ins
     \end{itemize}
 \end{itemize}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{\figpath/fig_g6_fx.png}
+\caption{Slide 11 Visual: Currency conversion step breakdown and top settlement currency turnover.}
+\label{fig:slide11_vis}
+\end{figure}
+
 \subsubsection{Slide 12: Feature Group 7 --- Semantic Token Architecture \& IBAN Gating}
 \begin{itemize}
     \item \textbf{Storyline Role:} Python Faker reverse-engineering, corporate token gating rule, and account standard syntax.
     \item \textbf{Visual Layout:} Left: Python Faker corporate token gating rule. Right: Prevalence bar chart of \texttt{<business:>} tokens and account standard donut chart.
-    \item \textbf{Diagram to Display:} Figure~\ref{fig:tokens_charts} (Zero-leakage corporate gating and SEPA IBAN distribution).
-    \item \textbf{Reconstructed Rules / Core Insight:} Zero-leakage corporate gating ($P(\text{<business:>} \mid \text{Consumer}) = 0.0000$); SEPA IBAN standard (51.5\%).
     \item \textbf{Presenter Spoken Script (45 Seconds):}
     \textit{``Feature Group 7 reverse-engineers the textual tokens synthesized via Python Faker. We uncovered a strict, zero-leakage gating rule: the probability of a Consumer having a corporate token is strictly 0.000\%. Consumers never receive business tokens. For corporate entities, 85.2\% receive business tokens. Furthermore, account identifiers adhere to geographical banking rules: European SEPA institutions generate standard IBAN formats (51.5\% of global accounts), while American and Asian institutions produce proprietary account patterns.''}
     \item \textbf{Anticipated Judge Q\&A \& Defense:}
@@ -1209,12 +1412,17 @@ This section provides the slide-by-slide production blueprint, visual layout ins
     \end{itemize}
 \end{itemize}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{\figpath/fig_g7_tokens.png}
+\caption{Slide 12 Visual: Zero-leakage corporate gating rule and geographic SEPA IBAN distribution.}
+\label{fig:slide12_vis}
+\end{figure}
+
 \subsubsection{Slide 13: Feature Group 8 --- Mathematical Signatures for All 6 Anomalies}
 \begin{itemize}
     \item \textbf{Storyline Role:} Comprehensive anomaly census, fraud mathematical triggers, and AML screening delays.
     \item \textbf{Visual Layout:} Left: Complete census and mathematical triggers for each anomaly. Right: Exact anomaly counts and entity separation stacked bar chart.
-    \item \textbf{Diagram to Display:} Figure~\ref{fig:anomaly_charts} (Anomaly behavioral signatures: AML holds and CEO valuation spikes).
-    \item \textbf{Reconstructed Rules / Core Insight:} 100\% census of 7,006 anomalies (0.0701\%); Romance scams ($100\%$ C, 1,558\,s hold); CEO scams ($100\%$ B, \$20.6k median); Fat-fingers ($10^k$, up to \$15.66B).
     \item \textbf{Presenter Spoken Script (60 Seconds):}
     \textit{``Feature Group 8 decodes the rare anomalies, representing exactly 7,006 records out of 10 million (0.0701\%). Each anomaly follows an exact mathematical signature: Romance scams are 100\% Consumer-originated and take an average of 1,558 seconds due to AML investigation holds. CEO scams are 100\% Corporate-originated with elevated median values of \$20,602. Fat-Finger errors preserve the exact original digits but displace the decimal point by factors of 10 or 100, reaching up to \$15.6 Billion. Duplicate payments represent exact replays of account and amount hashes within 450 seconds.''}
     \item \textbf{Anticipated Judge Q\&A \& Defense:}
@@ -1224,12 +1432,17 @@ This section provides the slide-by-slide production blueprint, visual layout ins
     \end{itemize}
 \end{itemize}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{\figpath/fig_anomaly_comparisons.png}
+\caption{Slide 13 Visual: Mean settlement duration (AML holds) and median valuation spikes across fraud typologies.}
+\label{fig:slide13_vis}
+\end{figure}
+
 \subsubsection{Slide 14: Verification via the Generative Twin Simulator}
 \begin{itemize}
     \item \textbf{Storyline Role:} Empirical verification, mathematical closure, and statistical model validation.
     \item \textbf{Visual Layout:} Left: Simulator architecture and validation metrics. Right: Overlay bar chart comparing empirical ground truth vs. Generative Twin outputs.
-    \item \textbf{Diagram to Display:} Figure~\ref{fig:twin_chart} (Generative Twin Statistical Validation) and Table~\ref{tab:twin_validation}.
-    \item \textbf{Reconstructed Rules / Core Insight:} Executable Python simulator reproducing ground-truth medians with $<10\%$ relative error across all tiers.
     \item \textbf{Presenter Spoken Script (45 Seconds):}
     \textit{``To provide undeniable proof of our reverse-engineering, we operationalized our findings into an executable Python simulator: the Swift Generative Twin. As shown in the validation chart, when comparing 10,000 synthetic payments against empirical ground truth, our twin achieves statistical errors below 10\% across all counterparty tiers. This confirms that our reconstructed mathematical equations and conditional logic have completely solved the underlying data generation engine.''}
     \item \textbf{Anticipated Judge Q\&A \& Defense:}
@@ -1239,12 +1452,17 @@ This section provides the slide-by-slide production blueprint, visual layout ins
     \end{itemize}
 \end{itemize}
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.80\textwidth]{\figpath/fig_twin_validation.png}
+\caption{Slide 14 Visual: Empirical ground truth vs. Generative Twin simulated output across counterparty tiers.}
+\label{fig:slide14_vis}
+\end{figure}
+
 \subsubsection{Slide 15: Conclusion, Model Limitations \& Compliance Disclosures}
 \begin{itemize}
     \item \textbf{Storyline Role:} Strategic recommendations, synthetic data limitations, and compliance disclosures.
     \item \textbf{Visual Layout:} Three summary blocks: (1) Reconstructed blueprint recap; (2) Synthetic quirks vs. market reality; (3) Tool disclosures and compliance statement.
-    \item \textbf{Diagram to Display:} Compliance checklist badge and deliverables roadmap.
-    \item \textbf{Reconstructed Rules / Core Insight:} Final synthesis, compliance with competition rules, and gratitude to judges.
     \item \textbf{Presenter Spoken Script (30 Seconds):}
     \textit{``In conclusion, our submission delivers a complete, causal reverse-engineering of the Swift synthetic payment graph, supported by a formal hypothesis ledger, documented negative results, and an executable simulator. In full compliance with competition rules, only the provided dataset was utilized, and all pre-existing analytical tools are disclosed. We thank the judges for their time and welcome any questions.''}
     \item \textbf{Anticipated Judge Q\&A \& Defense:}
@@ -1253,6 +1471,37 @@ This section provides the slide-by-slide production blueprint, visual layout ins
         \item \textbf{Authoritative Defense:} \textit{``We recommend enhancing synthetic generation models by incorporating time-varying interest rates to model nostro funding costs, and introducing correlated clustering for romance scam mule networks rather than purely independent random draws.''}
     \end{itemize}
 \end{itemize}
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}[
+    scale=0.85, transform shape,
+    card/.style={rectangle, rounded corners=4pt, line width=0.9pt, font=\scriptsize\hyphenpenalty=10000, inner sep=6pt, text=DarkSlate, text width=4.5cm, minimum height=2.6cm, align=left}
+]
+  \node[card, fill=blue!10, draw=SwiftBlue] (c1) at (0, 0) {
+    \textbf{\color{SwiftBlue}\normalsize Strategic Recommendations}\\[3pt]
+    $\bullet$ \textbf{Pre-Settlement Checking:} Validate BIC8 RMA links to avoid 4-hop delays.\\[2pt]
+    $\bullet$ \textbf{Token Screening:} Flag corporate tokens on Consumer wires.\\[2pt]
+    $\bullet$ \textbf{AML Dynamic Holds:} Streamline romance scam mule checks.
+  };
+  
+  \node[card, fill=orange!10, draw=orange!80!black] (c2) at (5.2, 0) {
+    \textbf{\color{orange!90!black}\normalsize Synthetic Quirks vs Reality}\\[3pt]
+    $\bullet$ \textbf{Exact $+2.0$ Step:} Real economies have continuous wage ladders.\\[2pt]
+    $\bullet$ \textbf{Zero Distance Effect:} Real FX has time-zone batch constraints.\\[2pt]
+    $\bullet$ \textbf{Pure Zero Leakage:} Real retail accounts occasionally leak.
+  };
+  
+  \node[card, fill=purple!10, draw=purple!80!black] (c3) at (10.4, 0) {
+    \textbf{\color{purple!90!black}\normalsize Compliance Disclosures}\\[3pt]
+    $\bullet$ \textbf{Rule 2.4/2.5:} 100\% data compliance; zero external datasets.\\[2pt]
+    $\bullet$ \textbf{Reproducibility:} Complete Colab notebook on Google Drive.\\[2pt]
+    $\bullet$ \textbf{Tools Disclosed:} DuckDB 2.0, Python, LaTeX, Beamer.
+  };
+\end{tikzpicture}
+\caption{Slide 15 Visual: Strategic Recommendations, Synthetic Quirks vs Market Reality, and Compliance Card.}
+\label{fig:slide15_vis}
+\end{figure}
 
 \section{Conclusion \& External References}
 
