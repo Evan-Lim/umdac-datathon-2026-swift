@@ -37,7 +37,7 @@
     citecolor=blue!70!black,
     urlcolor=blue!70!black,
     pdftitle={Reverse-Engineering the Swift Synthetic Payment Graph: Causal Architecture, Generative Rules, and Economic Mechanisms},
-    pdfauthor={Team Analytical Blueprint}
+    pdfauthor={Evan Lim, Lim Zhi Yin, Joy}
 }
 
 % Color Definitions
@@ -111,7 +111,9 @@
     \centering\small
     \textbf{Target Competition:} Universiti Malaya Data Analytics Club (UMDAC) Datathon 2026\\
     \textbf{Co-Curator \& Sponsor:} Swift (Society for Worldwide Interbank Financial Telecommunication)\\
+    \textbf{Team Members:} Evan Lim, Lim Zhi Yin, Joy\\
     \textbf{Preliminary Round Sprint:} 13 November 2026 (11:40 AM) --- 19 November 2026 (12:00 PM)\\
+    \textbf{Final Round Physical Pitch:} 4 December 2026 (FCSIT, Universiti Malaya) --- 15-Minute Industry Pitch\\
     \textbf{Dataset Scope:} 10,000,000 Synthetic Transactions across 21 Relational \& Topological Attributes (4.72\,GB)
     \end{tcolorbox}
     
@@ -327,6 +329,32 @@ The complete data synthesis pipeline operates across five hierarchical layers:
     \item \textbf{Layer 3 (Settlement Execution Latency):} Total elapsed duration \texttt{TOTAL\_DURATION} is evaluated as an additive function: base Straight-Through Processing latency ($39.0$\,s) plus intermediary hop queuing ($+300\text{--}400$\,s per institution) plus foreign exchange batch conversion delay ($+148$\,s).
     \item \textbf{Layer 4 (Linguistic Details \& Token Masks):} The Python Faker library is called with localized country templates. If the ordering party is a Consumer, corporate token tags (\texttt{<business:>}) are strictly gated to $0.0\%$. If the bank resides in a SEPA country, synthetic IBAN formats are enforced.
     \item \textbf{Layer 5 (Anomaly Injection):} In 0.0701\% of records, an anomaly injection rule overwrites baseline attributes (e.g., scaling amounts by $10^k$ for Fat-Fingers, replaying identical hashes for Duplicates, or holding Consumer funds for Romance scams).
+\end{enumerate}
+
+\subsection{Tripartite Analytical Architecture (Team Dashboard Alignment)}
+To bridge procedural causal discovery with practical business problem solving, our team formulated an integrated \textbf{Tripartite Analytical Architecture}. Aligned with our shared dashboard repository (\texttt{UM Datathon Dashboards.ipynb}), the analysis divides into three complementary, non-overlapping analytical pillars:
+
+\begin{enumerate}
+    \item \textbf{Pillar 1: Macro Ecosystem, Route Observability \& Fraud Profiling (Joy):}
+    \begin{itemize}
+        \item \textit{Core Focus:} \textit{``How do we catch glitches, fake transfers, and systemic blind spots?''}
+        \item \textit{Investigated Attributes:} Top currency turnover, bank hop distributions, route continuity flags (\texttt{CONTINUITY\_QFLAG}), and ground-truth anomaly typologies (\texttt{ANOMALY\_TYPE}).
+        \item \textit{Primary Findings:} 100\% isolation of all 7,006 anomalies (0.0701\% prevalence), proving deterministic entity conditioning ($P(\text{C} \mid \text{Romance}) = 1.000$, $P(\text{B} \mid \text{CEO}) = 1.000$) and mantissa-preserving decimal shifts up to \$15.66 Billion.
+    \end{itemize}
+    
+    \item \textbf{Pillar 2: Corridor Topology, Settlement Latency \& Congestion (Evan):}
+    \begin{itemize}
+        \item \textit{Core Focus:} \textit{``How fast does the money travel, and where are the traffic jams (delays)?''}
+        \item \textit{Investigated Attributes:} Interbank network topology (\texttt{BIC8\_PATH}), participant count scaling, settlement duration (\texttt{TOTAL\_DURATION}), and temporal initiation rhythms (\texttt{EPOCH\_SECONDS}).
+        \item \textit{Primary Findings:} Invariant direct routing condition ($\text{Direct} \iff \text{Hops} = 2.0$), closed-form additive latency queuing law ($39.0\,\text{s} + \beta_{\text{hop}}\Delta N + \beta_{\text{FX}}\Delta\text{FX}$), 85.2\% weekday concentration with 23:00--01:00 UTC diurnal clearing peaks, and scientific refutation of geographic distance as a delay driver ($r=0.018, p=0.34$).
+    \end{itemize}
+    
+    \item \textbf{Pillar 3: Valuation Dynamics, Entity Segmentation \& FX Mechanics (Zhi Yin):}
+    \begin{itemize}
+        \item \textit{Core Focus:} \textit{``Where is the money going, and how is it being paid?''}
+        \item \textit{Investigated Attributes:} Transaction sizes (\texttt{USD\_AMOUNT}), counterparty pair tiers (Corporate vs. Consumer), routing modalities, and FX conversion steps.
+        \item \textit{Primary Findings:} Segmented Log-Normal ladder law ($\mu$ shifts by $+2.0$, generating an exact $7.39\times$ purchasing power step multiplier), corporate token gating ($P(\text{<business:>} \mid \text{Consumer}) = 0.0000$), and Covered routing liquidity thresholds ($N \ge 3$ requirement and $+24.8\%$ value premium).
+    \end{itemize}
 \end{enumerate}
 
 % ==============================================================================
