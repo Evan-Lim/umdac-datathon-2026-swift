@@ -287,8 +287,8 @@ A cross-border interbank payment is inherently a directed edge in a time-evolvin
     >=Stealth,
     box/.style={
         rectangle, rounded corners=4pt, draw=SwiftNavy, line width=0.8pt,
-        font=\footnotesize\bfseries, align=center, inner sep=6pt, text=DarkSlate,
-        text width=4.4cm, minimum height=1.1cm
+        font=\footnotesize\bfseries\hyphenpenalty=10000\exhyphenpenalty=10000, align=center, inner sep=5pt, text=DarkSlate,
+        text width=4.6cm, minimum height=1.1cm
     }
 ]
 
@@ -297,17 +297,17 @@ A cross-border interbank payment is inherently a directed edge in a time-evolvin
   % --- LAYER 0: EXOGENOUS ROOTS ---
   \node[box, fill=purple!15, draw=purple!80!black] (corridor) at (0, 0) {
     \textbf{Layer 0: BIC8 Corridors}\\
-    \scriptsize Ordering BIC8 $\rightarrow$ Beneficiary BIC8
+    \scriptsize Ord BIC8 $\rightarrow$ Ben BIC8
   };
   
   \node[box, fill=blue!15, draw=SwiftBlue] (entity) at (6.2, 0) {
-    \textbf{Layer 0: Counterparty Tier}\\
-    \scriptsize $\text{Ord Tier} \rightarrow \text{Ben Tier} \in \{B, C\}^2$
+    \textbf{Layer 0: Counterparty Tiers}\\
+    \scriptsize Ord Tier $\rightarrow$ Ben Tier $\in \{B, C\}^2$
   };
   
   \node[box, fill=gray!15, draw=DarkSlate] (time) at (12.4, 0) {
-    \textbf{Layer 0: Temporal Seed}\\
-    \scriptsize Weekday \& Diurnal Operating Hour
+    \textbf{Layer 0: Temporal Rhythms}\\
+    \scriptsize Weekday \& Diurnal Hours
   };
 
   % --- LAYER 1: FINANCIAL ATTRIBUTES ---
@@ -317,41 +317,41 @@ A cross-border interbank payment is inherently a directed edge in a time-evolvin
   };
 
   \node[box, fill=green!15, draw=green!60!black] (amt) at (6.2, -2.2) {
-    \textbf{Layer 1: USD Amount}\\
+    \textbf{Layer 1: Valuation Dynamics}\\
     \scriptsize $\ln(\text{USD\_AMOUNT}) \sim \mathcal{N}(\mu, \sigma=2.29)$
   };
 
   % --- LAYER 2: TOPOLOGY & FX ---
   \node[box, fill=cyan!15, draw=cyan!80!black] (fx) at (0, -4.4) {
     \textbf{Layer 2: FX Conversions}\\
-    \scriptsize 0, 1, 2+ Triangulation Hops
+    \scriptsize 0, 1, or 2+ FX Hops
   };
 
   \node[box, fill=orange!15, draw=orange!90!black] (route) at (6.2, -4.4) {
     \textbf{Layer 2: Routing Modality}\\
-    \scriptsize Direct ($N=2$) vs Indirect/Covered ($N \ge 3$)
+    \scriptsize Direct ($N=2$) vs Indirect ($N \ge 3$)
   };
 
   \node[box, fill=indigo!15, draw=indigo!80!black] (tokens) at (12.4, -4.4) {
-    \textbf{Layer 4: Text Tokens}\\
-    \scriptsize Faker Legal Templates \& IBAN Gating
+    \textbf{Layer 4: Token Semantics}\\
+    \scriptsize Faker Suffixes \& IBAN Gating
   };
 
   % --- LAYER 3: EXECUTION & LATENCY ---
   \node[box, fill=teal!15, draw=teal!80!black] (cont) at (0, -6.6) {
     \textbf{Layer 3: Path Continuity}\\
-    \scriptsize Observable vs Opaque Path (\texttt{QFLAG})
+    \scriptsize Observable vs Masked (\texttt{QFLAG})
   };
 
   \node[box, fill=red!15, draw=red!70!black] (dur) at (6.2, -6.6) {
-    \textbf{Layer 3: Settlement Duration}\\
+    \textbf{Layer 3: Settlement Latency}\\
     \scriptsize $\text{Median} = 39\text{s} + \beta_{\text{hop}}\Delta N + \beta_{\text{FX}}\Delta\text{FX}$
   };
 
   % --- LAYER 5: INJECTED ANOMALIES ---
   \node[box, fill=AlertRed!15, draw=AlertRed, line width=1.1pt, text width=9.6cm] (anom) at (6.2, -8.7) {
-    \textbf{Layer 5: Injected Anomalies (0.0701\% / 7,006 Records)}\\
-    \scriptsize Romance (AML holding delay), CEO Scam (Corporate), Fat-Finger ($10^k$), Duplicate Payment
+    \textbf{Layer 5: Injected Anomalies (0.07\% / 7,006 Records)}\\
+    \scriptsize Romance Scams, CEO Fraud, Decimal Shifts ($10^k$), Duplicates
   };
 
   % --- CAUSAL FLOW EDGES (CLEAN, NO CROSSING) ---
@@ -407,25 +407,25 @@ To bridge procedural causal discovery with practical business problem solving, o
     scale=0.90, transform shape,
     pipebox/.style={
         rectangle, rounded corners=4pt, draw=SwiftBlue, line width=1pt,
-        font=\small\bfseries, align=center, inner sep=6pt, text=white,
+        font=\small\bfseries\hyphenpenalty=10000\exhyphenpenalty=10000, align=center, inner sep=6pt, text=white,
         fill=SwiftNavy, text width=15.2cm, minimum height=0.9cm
     },
     pillarbox/.style={
         rectangle, rounded corners=4pt, line width=1pt,
-        font=\footnotesize, align=left, inner sep=6pt, text=DarkSlate,
+        font=\footnotesize\hyphenpenalty=10000\exhyphenpenalty=10000, align=left, inner sep=6pt, text=DarkSlate,
         text width=4.6cm, minimum height=3.6cm
     }
 ]
 
   % --- TOP LEVEL: DATA SOURCE & COLAB ENGINE ---
   \node[pipebox] (data) at (7.5, 9.6) {
-    \textbf{10,000,000 Synthetic Swift Transactions (4.72\,GB Raw CSV / 1.2\,GB Parquet)}\\
+    \textbf{10,000,000 Synthetic Payments (4.72\,GB Raw CSV / 1.2\,GB Parquet)}\\
     \footnotesize Google Drive Integration $\bullet$ RFC 4180 Multiline Parsing $\bullet$ Schema Type Enforcement
   };
 
   \node[pipebox, fill=SwiftSky, draw=SwiftBlue] (engine) at (7.5, 8.0) {
-    \textbf{Google Colab Zero-RAM-Spill Execution Engine (DuckDB 2.0 Vectorized SQL)}\\
-    \footnotesize In-Memory Columnar Scanning $\bullet$ Zero RAM Overflow $\bullet$ Sub-Second Filter Aggregations ($<0.45\,\text{s}$)
+    \textbf{Google Colab Zero-RAM-Spill Pipeline (DuckDB 2.0 Vectorized SQL)}\\
+    \footnotesize In-Memory Columnar Scanning $\bullet$ Zero RAM Spill $\bullet$ Sub-Second Queries ($<0.45\,\text{s}$)
   };
 
   \draw[->, very thick, color=SwiftNavy] (data) -- (engine);
@@ -438,8 +438,8 @@ To bridge procedural causal discovery with practical business problem solving, o
     \raggedright\scriptsize
     $\bullet$ \textbf{Macro Turnover:} Top currencies (EUR, USD) \& 22-hop outlier paths.\par\vspace{3pt}
     $\bullet$ \textbf{G8 Anomaly Profiling:} 100\% census (7,006 rows / 0.0701\%).\par\vspace{3pt}
-    $\bullet$ \textbf{Fraud Conditioning:} Romance ($100\%$ C), CEO ($100\%$ B).\par\vspace{3pt}
-    $\bullet$ \textbf{G7 Token Gating:} Corporate token rule ($P=0.0000$).
+    $\bullet$ \textbf{Fraud Rules:} Romance ($100\%$ C), CEO ($100\%$ B).\par\vspace{3pt}
+    $\bullet$ \textbf{G7 Token Gating:} Corporate filter rule ($P=0.0000$).
   };
 
   % Pillar 2: Evan
@@ -448,10 +448,10 @@ To bridge procedural causal discovery with practical business problem solving, o
     \centering\scriptsize\textbf{Topology \& Queuing Dynamics}\par\vspace{6pt}
     \raggedright\scriptsize
     $\bullet$ \textbf{G3 Invariant:} Direct $\iff$ Hops $=2.0$ (63.1\% volume).\par\vspace{3pt}
-    $\bullet$ \textbf{Intermediary Hubs:} \texttt{US30}, \texttt{GB20}, \texttt{DEF0}, \texttt{CHZ0}.\par\vspace{3pt}
-    $\bullet$ \textbf{G4 Additive Latency:} $39\,\text{s} + \beta_{\text{hop}}\Delta N + 148\,\text{s}\Delta\text{FX}$.\par\vspace{3pt}
-    $\bullet$ \textbf{Falsified NEG-01:} Distance $r=0.018$ ($p=0.34$, rejected).\par\vspace{3pt}
-    $\bullet$ \textbf{G2 Diurnal Spikes:} 85.2\% weekday, 23:00--01:00 UTC peak.
+    $\bullet$ \textbf{Intermediary Hubs:} \texttt{US30}, \texttt{GB20}, \texttt{DEF0}.\par\vspace{3pt}
+    $\bullet$ \textbf{G4 Latency Law:} $39\,\text{s} + \beta_{\text{hop}}\Delta N + 148\,\text{s}\Delta\text{FX}$.\par\vspace{3pt}
+    $\bullet$ \textbf{Rejected NEG-01:} Distance $r=0.018$ ($p=0.34$).\par\vspace{3pt}
+    $\bullet$ \textbf{G2 Diurnal Spikes:} 85.2\% weekday peak.
   };
 
   % Pillar 3: Zhi Yin
@@ -459,10 +459,10 @@ To bridge procedural causal discovery with practical business problem solving, o
     \centering\textbf{\color{teal!90!black}\large 3. ZHI YIN'S VALUATION}\par\vspace{2pt}
     \centering\scriptsize\textbf{Valuation, Entities \& FX}\par\vspace{6pt}
     \raggedright\scriptsize
-    $\bullet$ \textbf{G1 Ladder Law:} $\ln(\text{USD}) \sim \mathcal{N}(\mu, 2.29)$, $+2.0$ step ($\times 7.39$).\par\vspace{3pt}
-    $\bullet$ \textbf{Tiers:} C2C (\$454) $\to$ B2C/C2B (\$3,122) $\to$ B2B (\$22,732).\par\vspace{3pt}
-    $\bullet$ \textbf{G6 FX Duopoly:} EUR+USD capture 49\% volume, 59\% value.\par\vspace{3pt}
-    $\bullet$ \textbf{G5 Covered Routing:} $N \ge 3$ threshold \& $+24.8\%$ premium.
+    $\bullet$ \textbf{G1 Ladder Law:} $\ln(\text{USD}) \sim \mathcal{N}(\mu, 2.29)$ ($+2.0$ step).\par\vspace{3pt}
+    $\bullet$ \textbf{Tiers:} C2C (\$454) $\to$ B2C (\$3,122) $\to$ B2B (\$22,732).\par\vspace{3pt}
+    $\bullet$ \textbf{G6 FX Duopoly:} EUR+USD capture 49\% volume.\par\vspace{3pt}
+    $\bullet$ \textbf{G5 Covered Routing:} $N \ge 3$ threshold \& $+25\%$ premium.
   };
 
   % Arrows from engine to pillars
@@ -473,7 +473,7 @@ To bridge procedural causal discovery with practical business problem solving, o
   % --- BOTTOM LEVEL: SYNTHESIS & COMPETITION DELIVERABLES ---
   \node[pipebox, fill=DarkSlate, draw=DarkSlate] (synth) at (7.5, 0.4) {
     \textbf{Unified Synthesis: 8 Feature Groups (G1--G8) Fully Covered With Zero Gaps}\par\vspace{2pt}
-    \footnotesize Master Technical Report $\bullet$ Executable Generative Twin Simulator $\bullet$ Standalone 8-Page Dashboard $\bullet$ 15-Slide Presentation Deck
+    \footnotesize Master Technical Report $\bullet$ Generative Twin Simulator $\bullet$ Standalone 8-Page Dashboard $\bullet$ 15-Slide Presentation Deck
   };
 
   \draw[->, thick, color=purple!80!black] (p1.south) -- (p1.south |- synth.north);
