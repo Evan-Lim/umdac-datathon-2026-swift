@@ -287,7 +287,7 @@ A cross-border interbank payment is inherently a directed edge in a time-evolvin
     >=Stealth,
     box/.style={
         rectangle, rounded corners=4pt, draw=SwiftNavy, line width=0.8pt,
-        font=\footnotesize\bfseries\hyphenpenalty=10000\exhyphenpenalty=10000, align=center, inner sep=5pt, text=DarkSlate,
+        font=\footnotesize\bfseries, align=center, inner sep=5pt, text=DarkSlate,
         text width=4.6cm, minimum height=1.1cm
     }
 ]
@@ -407,12 +407,12 @@ To bridge procedural causal discovery with practical business problem solving, o
     scale=0.90, transform shape,
     pipebox/.style={
         rectangle, rounded corners=4pt, draw=SwiftBlue, line width=1pt,
-        font=\small\bfseries\hyphenpenalty=10000\exhyphenpenalty=10000, align=center, inner sep=6pt, text=white,
+        font=\small\bfseries, align=center, inner sep=6pt, text=white,
         fill=SwiftNavy, text width=15.2cm, minimum height=0.9cm
     },
     pillarbox/.style={
         rectangle, rounded corners=4pt, line width=1pt,
-        font=\footnotesize\hyphenpenalty=10000\exhyphenpenalty=10000, align=left, inner sep=6pt, text=DarkSlate,
+        font=\footnotesize, align=left, inner sep=6pt, text=DarkSlate,
         text width=4.6cm, minimum height=3.6cm
     }
 ]
@@ -1105,7 +1105,7 @@ This section provides the slide-by-slide production blueprint, visual layout ins
 \centering
 \begin{tikzpicture}[
     scale=0.88, transform shape,
-    box/.style={rectangle, rounded corners=4pt, draw=SwiftNavy, line width=0.9pt, fill=white, font=\small\hyphenpenalty=10000, inner sep=8pt, align=center, text=DarkSlate}
+    box/.style={rectangle, rounded corners=4pt, draw=SwiftNavy, line width=0.9pt, fill=white, font=\small, inner sep=8pt, align=center, text=DarkSlate}
 ]
   \node[box, fill=SwiftLight, draw=SwiftBlue, line width=1.1pt, text width=15cm] (header) at (0, 0) {
     {\large\textbf{\color{SwiftNavy} UMDAC Datathon 2026: Swift Payments Reverse-Engineering}}\\[4pt]
@@ -1135,7 +1135,7 @@ This section provides the slide-by-slide production blueprint, visual layout ins
 \centering
 \begin{tikzpicture}[
     scale=0.88, transform shape,
-    card/.style={rectangle, rounded corners=4pt, line width=0.9pt, font=\scriptsize\hyphenpenalty=10000, inner sep=6pt, text=DarkSlate, text width=4.6cm, minimum height=2.8cm, align=left}
+    card/.style={rectangle, rounded corners=4pt, line width=0.9pt, font=\scriptsize, inner sep=6pt, text=DarkSlate, text width=4.6cm, minimum height=2.8cm, align=left}
 ]
   \node[card, fill=purple!10, draw=purple!80!black] (p1) at (0, 0) {
     \textbf{\color{purple!90!black}\normalsize 1. Joy's Kopitiam}\\[2pt]
@@ -1181,7 +1181,7 @@ This section provides the slide-by-slide production blueprint, visual layout ins
 \begin{tikzpicture}[
     >=Stealth,
     scale=0.85, transform shape,
-    stepbox/.style={rectangle, rounded corners=4pt, draw=SwiftNavy, line width=0.9pt, fill=LightSlate, font=\scriptsize\hyphenpenalty=10000, inner sep=5pt, text=DarkSlate, text width=3.3cm, minimum height=1.6cm, align=center}
+    stepbox/.style={rectangle, rounded corners=4pt, draw=SwiftNavy, line width=0.9pt, fill=LightSlate, font=\scriptsize, inner sep=5pt, text=DarkSlate, text width=3.3cm, minimum height=1.6cm, align=center}
 ]
   \node[stepbox, fill=blue!10, draw=SwiftBlue] (s1) at (0, 0) {
     \textbf{1. Parquet Migration}\\[2pt]
@@ -1225,7 +1225,7 @@ This section provides the slide-by-slide production blueprint, visual layout ins
 \centering
 \begin{tikzpicture}[
     scale=0.85, transform shape,
-    card/.style={rectangle, rounded corners=4pt, line width=0.9pt, font=\scriptsize\hyphenpenalty=10000, inner sep=6pt, text=DarkSlate, text width=6.8cm, minimum height=2.4cm, align=left}
+    card/.style={rectangle, rounded corners=4pt, line width=0.9pt, font=\scriptsize, inner sep=6pt, text=DarkSlate, text width=6.8cm, minimum height=2.4cm, align=left}
 ]
   \node[card, fill=green!10, draw=SuccessGreen] (conf) at (0, 0) {
     \textbf{\color{SuccessGreen}\normalsize Confirmed Generative Laws (HYP-01 to HYP-04)}\\[3pt]
@@ -1264,7 +1264,7 @@ This section provides the slide-by-slide production blueprint, visual layout ins
 \centering
 \begin{tikzpicture}[
     scale=0.85, transform shape,
-    issuebox/.style={rectangle, rounded corners=4pt, draw=SwiftBlue, line width=0.8pt, fill=LightSlate, font=\scriptsize\hyphenpenalty=10000, inner sep=5pt, text=DarkSlate, text width=14.8cm, align=left}
+    issuebox/.style={rectangle, rounded corners=4pt, draw=SwiftBlue, line width=0.8pt, fill=LightSlate, font=\scriptsize, inner sep=5pt, text=DarkSlate, text width=14.8cm, align=left}
 ]
   \node[issuebox] (box) at (0, 0) {
     \textbf{\normalsize Data Integrity Resolution Pipeline (Rubric 3.1 Compliance)}\\[3pt]
@@ -1476,7 +1476,7 @@ This section provides the slide-by-slide production blueprint, visual layout ins
 \centering
 \begin{tikzpicture}[
     scale=0.85, transform shape,
-    card/.style={rectangle, rounded corners=4pt, line width=0.9pt, font=\scriptsize\hyphenpenalty=10000, inner sep=6pt, text=DarkSlate, text width=4.5cm, minimum height=2.6cm, align=left}
+    card/.style={rectangle, rounded corners=4pt, line width=0.9pt, font=\scriptsize, inner sep=6pt, text=DarkSlate, text width=4.5cm, minimum height=2.6cm, align=left}
 ]
   \node[card, fill=blue!10, draw=SwiftBlue] (c1) at (0, 0) {
     \textbf{\color{SwiftBlue}\normalsize Strategic Recommendations}\\[3pt]
