@@ -111,7 +111,7 @@
     \textbf{Target Competition:} Universiti Malaya Data Analytics Club (UMDAC) Datathon 2026\\
     \textbf{Co-Curator \& Sponsor:} Swift (Society for Worldwide Interbank Financial Telecommunication)\\
     \textbf{Team Members:} Evan Lim, Lim Zhi Yin, Joy\\
-    \textbf{Collaborative Workspace:} Google Colab (\texttt{UM\_Datathon\_Dashboards\_Completed.ipynb}) \& WSL2 Git\\
+    \textbf{Collaborative Workspace:} Google Colab (\texttt{UM Datathon Dashboards.ipynb}) \& WSL2 Git\\
     \textbf{Google Drive Project Hub:} \url{https://drive.google.com/drive/folders/1V3IYM7S0z1YqADZCsxrv2h8-oPdt7X-h}\\
     \textbf{Preliminary Round Sprint:} 13 November 2026 (11:40 AM) --- 19 November 2026 (12:00 PM)\\
     \textbf{Final Round Physical Pitch:} 4 December 2026 (FCSIT, Universiti Malaya) --- 15-Minute Industry Pitch\\
@@ -397,7 +397,7 @@ The complete data synthesis pipeline operates across five hierarchical layers:
 \end{enumerate}
 
 \subsection{The Tripartite Collaborative Architecture \& Google Colab Pipeline}
-To bridge procedural causal discovery with practical business problem solving, our team formulated an integrated \textbf{Tripartite Collaborative Architecture}. Aligned with our shared Google Colab analytical notebook (\texttt{UM\_Datathon\_Dashboards\_Completed.ipynb}) hosted on Google Drive, the 8 reverse-engineered feature groups divide cleanly into three non-overlapping, highly specialized analytical pillars:
+To bridge procedural causal discovery with practical business problem solving, our team formulated an integrated \textbf{Tripartite Collaborative Architecture}. Aligned with our shared Google Colab analytical notebook (\texttt{UM Datathon Dashboards.ipynb}) hosted on Google Drive, the 8 reverse-engineered feature groups divide cleanly into three non-overlapping, highly specialized analytical pillars:
 
 \begin{figure}[H]
 \centering
@@ -436,10 +436,9 @@ To bridge procedural causal discovery with practical business problem solving, o
     \centering\textbf{\color{purple!90!black}\large 1. JOY'S KOPITIAM}\par\vspace{2pt}
     \centering\scriptsize\textbf{Macro Ecosystem \& Fraud Profiling}\par\vspace{6pt}
     \raggedright\scriptsize
-    $\bullet$ \textbf{Macro Turnover:} Top currencies (EUR, USD) \& 22-hop outlier paths.\par\vspace{3pt}
-    $\bullet$ \textbf{G8 Anomaly Profiling:} 100\% census (7,006 rows / 0.0701\%).\par\vspace{3pt}
-    $\bullet$ \textbf{Fraud Rules:} Romance ($100\%$ C), CEO ($100\%$ B).\par\vspace{3pt}
-    $\bullet$ \textbf{G7 Token Gating:} Corporate filter rule ($P=0.0000$).
+    $\bullet$ \textbf{Topic 1 (Modality):} B2B captures 72.5\% value (\$705B) despite 22.7\% vol.\par\vspace{3pt}
+    $\bullet$ \textbf{Topic 2 (Observability):} Blind spot triples latency (155\,s vs 54\,s); Numeric tokens +51\% fraud.\par\vspace{3pt}
+    $\bullet$ \textbf{Topic 3 (Fraud):} 100\% census (7,006 rows); Romance hold 1,558\,s; CEO median \$20.6k.
   };
 
   % Pillar 2: Evan
@@ -447,11 +446,9 @@ To bridge procedural causal discovery with practical business problem solving, o
     \centering\textbf{\color{SwiftBlue}\large 2. EVAN'S CORRIDOR}\par\vspace{2pt}
     \centering\scriptsize\textbf{Topology \& Queuing Dynamics}\par\vspace{6pt}
     \raggedright\scriptsize
-    $\bullet$ \textbf{G3 Invariant:} Direct $\iff$ Hops $=2.0$ (63.1\% volume).\par\vspace{3pt}
-    $\bullet$ \textbf{Intermediary Hubs:} \texttt{US30}, \texttt{GB20}, \texttt{DEF0}.\par\vspace{3pt}
-    $\bullet$ \textbf{G4 Latency Law:} $39\,\text{s} + \beta_{\text{hop}}\Delta N + 148\,\text{s}\Delta\text{FX}$.\par\vspace{3pt}
-    $\bullet$ \textbf{Rejected NEG-01:} Distance $r=0.018$ ($p=0.34$).\par\vspace{3pt}
-    $\bullet$ \textbf{G2 Diurnal Spikes:} 85.2\% weekday peak.
+    $\bullet$ \textbf{Topic 1 (Topology):} Direct $\iff N=2.0$ (63.2\% vol); Clearing hubs \texttt{US30}, \texttt{GB20}, \texttt{DEF0}.\par\vspace{3pt}
+    $\bullet$ \textbf{Topic 2 (Latency):} $39\,\text{s} + \beta_{\text{hop}}\Delta N + 148\,\text{s}\Delta\text{FX}$; distance refutation ($p=0.34$).\par\vspace{3pt}
+    $\bullet$ \textbf{Topic 3 (Temporal):} 88.8\% weekday concentration; 23:00--01:00 UTC peak.
   };
 
   % Pillar 3: Zhi Yin
@@ -459,10 +456,9 @@ To bridge procedural causal discovery with practical business problem solving, o
     \centering\textbf{\color{teal!90!black}\large 3. ZHI YIN'S VALUATION}\par\vspace{2pt}
     \centering\scriptsize\textbf{Valuation, Entities \& FX}\par\vspace{6pt}
     \raggedright\scriptsize
-    $\bullet$ \textbf{G1 Ladder Law:} $\ln(\text{USD}) \sim \mathcal{N}(\mu, 2.29)$ ($+2.0$ step).\par\vspace{3pt}
-    $\bullet$ \textbf{Tiers:} C2C (\$454) $\to$ B2C (\$3,122) $\to$ B2B (\$22,732).\par\vspace{3pt}
-    $\bullet$ \textbf{G6 FX Duopoly:} EUR+USD capture 49\% volume.\par\vspace{3pt}
-    $\bullet$ \textbf{G5 Covered Routing:} $N \ge 3$ threshold \& $+25\%$ premium.
+    $\bullet$ \textbf{Topic 1 (Currency):} EUR+USD duopoly captures 59.5\% value (\$578B) and 49.0\% volume.\par\vspace{3pt}
+    $\bullet$ \textbf{Topic 2 (Entities):} $\ln(\text{USD}) \sim \mathcal{N}(\mu, 2.29)$; B2B \$22.9k median ($7.39\times$ step).\par\vspace{3pt}
+    $\bullet$ \textbf{Topic 3 (Settlement):} Direct 39\,s vs Indirect 281\,s vs Covered 383\,s; 2+ FX delay 321\,s.
   };
 
   % Arrows from engine to pillars
@@ -489,16 +485,27 @@ To bridge procedural causal discovery with practical business problem solving, o
 Table~\ref{tab:colab_architecture} presents the complete mapping between the Google Colab notebook cells, team member ownership, investigated feature groups, reconstructed generative laws, and benchmarked DuckDB SQL execution runtimes.
 
 \begin{table}[H]
-\centering\footnotesize
-\caption{Tripartite Analytical Dashboard \& Google Colab Cell Architecture Matrix.}
+\centering\scriptsize
+\caption{Tripartite Analytical Dashboard \& Google Colab Cell Architecture Matrix (32-Cell Vectorized Pipeline in \texttt{UM Datathon Dashboards.ipynb}).}
 \label{tab:colab_architecture}
-\renewcommand{\arraystretch}{1.25}
-\begin{tabularx}{\textwidth}{@{}l >{\raggedright\arraybackslash}p{2.2cm} >{\raggedright\arraybackslash}p{2.0cm} >{\raggedright\arraybackslash}p{4.2cm} >{\raggedright\arraybackslash}X c@{}}
+\renewcommand{\arraystretch}{1.22}
+\begin{tabularx}{\textwidth}{@{}l >{\raggedright\arraybackslash}p{1.4cm} >{\raggedright\arraybackslash}p{1.4cm} >{\raggedright\arraybackslash}p{3.8cm} >{\raggedright\arraybackslash}X c@{}}
 \toprule
-\textbf{Pillar} & \textbf{Teammate} & \textbf{Colab Cells} & \textbf{Feature Groups Covered} & \textbf{Reconstructed Mathematical Law} & \textbf{Colab Latency} \\ \midrule
-\textbf{Pillar 1} & \textbf{Joy} & Cells 2--12 & G3 (Macro Observability), G7 (Tokens), G8 (Anomalies) & $P(\text{<business:>} \mid \text{C}) = 0.0000$; 100\% entity conditioning in fraud; 22-hop path tracking. & 0.42\,s \\
-\textbf{Pillar 2} & \textbf{Evan} & Cells 13--19 & G3 (Corridor Topology), G4 (Settlement Latency), G2 (Temporal) & $\text{Direct} \iff N=2.0$; Additive delay $39\,\text{s} + \beta_{\text{hop}}\Delta N$; Falsified $r_{\text{dist}} = 0.018$. & 0.38\,s \\
-\textbf{Pillar 3} & \textbf{Zhi Yin} & Cells 20--26 & G6 (FX Dynamics), G1 (Valuation), G5 (Modality) & $\ln(\text{USD}) \sim \mathcal{N}(\mu, 2.29)$, $+2.0$ ladder; EUR+USD reserve duopoly; Covered $N \ge 3$. & 0.35\,s \\ \bottomrule
+\textbf{Pillar} & \textbf{Owner} & \textbf{Colab Cells} & \textbf{Topic \& Feature Groups} & \textbf{Reconstructed Mathematical Law / Empirical Result} & \textbf{Runtime} \\ \midrule
+\textbf{Setup} & Team & Cells 1--2 & Drive Mount \& Vectorized DuckDB & In-memory Parquet/CSV scanning with zero RAM spill ($<350$\,MB footprint). & 0.12\,s \\ \midrule
+\multirow{4}{*}{\textbf{Pillar 1}} & \multirow{4}{*}{\textbf{Joy}} 
+  & Cells 3--11 & Exploratory Census \& Macro Outliers & 10M-row dataset scan; top delayed outlier paths up to $N=22$ hops. & 0.44\,s \\
+  & & Cells 12--13 & Topic 1: Payment Modality \& Entity Flows & B2B captures 72.54\% USD value (\$705.14B) despite 22.71\% volume share. & 0.38\,s \\
+  & & Cells 14--15 & Topic 2: Route Observability \& Tokens & Blind spot (\texttt{QFLAG='N'}) triples latency (155s vs 54s); Numeric tokens +51\% fraud risk. & 0.35\,s \\
+  & & Cells 16--17 & Topic 3: Synthetic Anomaly \& Fraud Profiling & 100\% census of 7,006 anomalies (0.0701\%); Romance scams hold 1,558s; CEO median \$20.6k. & 0.41\,s \\ \midrule
+\multirow{3}{*}{\textbf{Pillar 2}} & \multirow{3}{*}{\textbf{Evan}} 
+  & Cells 20--21 & Topic 1: Corridor Topology \& Direct Invariance & Direct clearing $\iff N=2.0$ (63.23\% volume, 39.0s); Hubs \texttt{US30}, \texttt{GB20}, \texttt{DEF0}. & 0.36\,s \\
+  & & Cells 22--23 & Topic 2: Multi-Hop Latency Queuing Law & Additive law: $39.0\,\text{s} + \beta_{\text{hop}}\Delta N + 148\,\text{s}\Delta\text{FX}$; distance refutation ($p=0.34$). & 0.39\,s \\
+  & & Cells 24--25 & Topic 3: Peak Traffic \& Cut-off Congestion & 88.82\% weekday volume (Friday peak 18.34\%); 23:00--01:00 UTC diurnal clearing peak. & 0.32\,s \\ \midrule
+\multirow{3}{*}{\textbf{Pillar 3}} & \multirow{3}{*}{\textbf{Zhi Yin}} 
+  & Cells 27--28 & Topic 1: Currency Dominance \& Value & EUR (36.76\%) + USD (22.70\%) = 59.46\% total value concentration; 49.02\% volume share. & 0.37\,s \\
+  & & Cells 29--30 & Topic 2: Entity Pair Valuation Ladder & $\ln(\text{USD}) \sim \mathcal{N}(\mu, 2.29)$ with $+2.0$ ladder shifts ($7.39\times$ step multiplier). & 0.34\,s \\
+  & & Cells 31--32 & Topic 3: Settlement \& FX Mechanics & Direct 39s (63.23\%) vs Indirect 281s (32.61\%) vs Covered 383s (4.16\%); 2+ FX delay 321s. & 0.38\,s \\ \bottomrule
 \end{tabularx}
 \end{table}
 
@@ -601,177 +608,247 @@ This section details the empirical findings, mathematical laws, and reconstructe
 % ------------------------------------------------------------------------------
 \subsection{Pillar 1 Findings (Joy's Kopitiam): Macro Ecosystem, Observability \& Fraud}
 % ------------------------------------------------------------------------------
+\textit{Core Research Mandate: ``How do we catch glitches, fake transfers, and blind spots?''} (Google Colab Cells 3--17 of \texttt{UM Datathon Dashboards.ipynb}).
 
-\subsubsection{Feature Group 3 (Part A): Macro Route Observability \& Continuity Quality Flags}
-\begin{rulebox}{Reconstructed Rule 3A: Network Path Continuity \& Outlier Chain Structure}
-Macro network route inspection demonstrates an extreme span in clearing hop lengths, ranging from $N = 2$ to $N = 22$ institutions:
+\subsubsection{Topic 1: Payment Modality \& Liquidity Concentration (Feature Groups 1 \& 5)}
+\begin{rulebox}{Reconstructed Rule 1A: Extreme Counterparty Liquidity Concentration}
+Cross-border payment volume is heavily skewed toward consumer disbursements, but financial capital is overwhelmingly concentrated in enterprise treasury flows (DuckDB Colab Cell 13):
 \begin{itemize}
-    \item \textbf{Continuous Paths (\texttt{CONTINUITY\_QFLAG = 'Y'}, 87.6\% of volume):} Full chain of BICs is explicitly logged.
-    \item \textbf{Masked / Discontinuous Paths (\texttt{CONTINUITY\_QFLAG = 'N'}, 12.4\% of volume):} Intermediary BICs are masked with ellipsis placeholders (\texttt{...}), reflecting reporting boundaries in inter-regional correspondent chains.
-    \item \textbf{Outlier Hop Chains ($N > 10$):} Account for $<0.01\%$ of payments but represent multi-jurisdictional correspondent rerouting.
-\end{itemize}
-\end{rulebox}
-
-\subsubsection{Feature Group 7: Semantic Token Architecture \& Corporate Gating (\texttt{TOKENS})}
-\begin{rulebox}{Reconstructed Rule 7: Zero-Leakage Corporate Token Gating \& IBAN Masking}
-Free-text fields (\texttt{ORDERING\_DETAILS}, \texttt{BENEFICIARY\_DETAILS}) and their token summaries (\texttt{\_TOKENS}) were synthesized via Python Faker country-specific providers:
-\begin{itemize}
-    \item \textbf{Strict Zero-Leakage Corporate Gating Rule:}
-    \begin{equation}
-    P(\text{Token has } \texttt{<business:>} \mid \text{ORDERING\_TYPE} = \text{'C'}) = 0.00000
-    \end{equation}
-    Consumers \textbf{never} receive corporate pattern tokens. Conversely, for Corporate senders ($B$), $85.20\%$ contain \texttt{<business:>} tokens reflecting corporate legal suffixes (PLC, LLC, GmbH, Ltd).
-    \item \textbf{SEPA IBAN Adoption Rule:} Accounts linked to European SEPA BICs strictly generate \texttt{<iban:...>} tokens (51.5\% of global accounts), while North American and Asian BICs generate proprietary numerical accounts (\texttt{<chr:99.../99>}).
+    \item \textbf{Business-to-Business (B2B):} Represents only \textbf{22.71\%} of transaction count (2,270,945 payments), yet commands \textbf{72.54\% of total network value} (\$705.14 Billion out of \$972.04 Billion settled). Median ticket size is \textbf{\$22,887.71} (Mean: \$310,506.47).
+    \item \textbf{Business-to-Consumer (B2C):} Represents \textbf{56.04\%} of transaction volume (5,603,692 payments, payroll and disbursements), settling \$229.71 Billion (23.63\% of value). Median ticket size is \textbf{\$3,119.00} (Mean: \$40,992.03).
+    \item \textbf{Consumer-to-Consumer (C2C):} Represents \textbf{15.15\%} of volume (1,514,758 remittances), settling \$12.59 Billion (1.30\% of value). Median ticket size is \textbf{\$463.17} (Mean: \$8,310.28).
+    \item \textbf{Consumer-to-Business (C2B):} Represents \textbf{6.11\%} of volume (610,605 retail invoices), settling \$24.60 Billion (2.53\% of value). Median ticket size is \textbf{\$3,229.06} (Mean: \$40,290.27).
+    \item \textbf{Modality by Settlement Clearing Type:} Even within complex multi-hop routing, B2B transfers consistently command high values: Direct (\$22,876.10 median), Indirect (\$22,504.89 median), and Covered (\$26,426.44 median).
 \end{itemize}
 \end{rulebox}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.85\textwidth]{\figpath/fig_g7_tokens.png}
-\caption{Token Semantics and Identifier Formats: Zero-leakage corporate token gating rule ($P(\text{Business} \mid \text{Consumer})=0.0000$) and geographic SEPA IBAN account masking.}
-\label{fig:tokens_charts}
+\includegraphics[width=0.90\textwidth]{\figpath/colab_joy_t1_modality.png}
+\caption{Joy Topic 1 Visual: Payment Modality \& Liquidity Concentration (Google Colab Cell 13). Chart 1A: Volume vs. Value Concentration showing B2B commanding 72.54\% of network value; Chart 1B: Median ticket sizes across counterparty pairs.}
+\label{fig:colab_joy_modality}
 \end{figure}
 
-\subsubsection{Feature Group 8: Deterministic Anomaly Signatures (\texttt{ANOMALY\_TYPE})}
-\begin{rulebox}{Reconstructed Rule 8: Closed-Form Signatures for All 6 Anomalies}
-Anomalies represent \textbf{7,006 records (0.0701\%)} out of 10,000,000 total payments, adhering to deterministic generation signatures:
+\subsubsection{Topic 2: Route Observability \& Token Integrity (Feature Groups 3 \& 7)}
+\begin{rulebox}{Reconstructed Rule 1B: Observability Blind Spots \& Corporate Token Gating}
+Route auditability and token structure directly govern tracking latency and fraud vulnerability (DuckDB Colab Cell 15):
+\begin{itemize}
+    \item \textbf{Route Continuity Quality Flag (\texttt{CONTINUITY\_QFLAG}):}
+    \begin{itemize}
+        \item \textbf{Continuous Observable Paths (\texttt{'Y'}, 92.33\% volume):} 9,232,796 transactions maintain end-to-end BIC8 visibility. Median duration = \textbf{54.0 seconds} (Mean hops: 2.54; Anomaly rate: 0.070\%).
+        \item \textbf{Masked Blind Spots (\texttt{'N'}, 7.67\% volume):} 767,204 transactions exhibit masked hop telemetry (\texttt{...}), jumping to a \textbf{median duration of 155.0 seconds}---a \textbf{$2.87\times$ latency penalty} due to inter-jurisdictional correspondent opacity (Mean hops: 3.12; Anomaly rate: 0.071\%).
+    \end{itemize}
+    \item \textbf{Token Structure and Fraud Vulnerability:}
+    \begin{itemize}
+        \item \textbf{Standard Alphanumeric Tokens (79.15\% volume):} 7,914,773 payments settle with median latency of 55.0\,s and baseline anomaly rate of 0.063\%.
+        \item \textbf{Numeric-Heavy Tokens (20.85\% volume):} 2,085,227 payments settle in 59.0\,s but suffer an \textbf{anomaly rate of 0.095\%}---representing a \textbf{+50.8\% elevated fraud/anomaly risk}!
+    \end{itemize}
+    \item \textbf{Strict Zero-Leakage Corporate Gating Rule:} Free-text token masks strictly follow:
+    \begin{equation}
+    P(\text{Token has } \texttt{<business:>} \mid \text{ORDERING\_TYPE} = \text{'C'}) = 0.00000
+    \end{equation}
+    Individual retail consumers never receive corporate pattern tokens, while 85.20\% of corporate senders receive corporate legal suffix tokens (\texttt{<business:PLC>}, \texttt{<business:LLC>}, \texttt{<business:GmbH>}).
+    \item \textbf{SEPA IBAN Adoption Rule:} European BIC8 accounts strictly generate standardized IBAN masks (\texttt{<iban:...>}, 51.5\% of global accounts), whereas Asian and North American institutions generate proprietary numeric account strings (\texttt{<chr:99.../99>}).
+\end{itemize}
+\end{rulebox}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.90\textwidth]{\figpath/colab_joy_t2_observability.png}
+\caption{Joy Topic 2 Visual: Route Observability \& Token Integrity (Google Colab Cell 15). Chart 2A: Impact of route opacity (\texttt{CONTINUITY\_QFLAG = 'N'}) on settlement latency (155\,s vs. 54\,s); Chart 2B: Elevated anomaly prevalence in numeric-heavy tokens (+51\% risk).}
+\label{fig:colab_joy_observability}
+\end{figure}
+
+\subsubsection{Topic 3: Synthetic Anomaly \& Fraud Profiling (Feature Group 8)}
+\begin{rulebox}{Reconstructed Rule 1C: Exhaustive Census of All {7,006} Anomaly Signatures}
+Anomalies represent exactly \textbf{7,006 records (0.0701\%)} out of 10,000,000 payments, exhibiting deterministic behavioural signatures (DuckDB Colab Cell 17):
 \begin{enumerate}
-    \item \textbf{ROMANCE\_SCAM (2,476 records):} Strictly $P(\text{Consumer} \mid \text{Romance}) = 1.000$ (73.1\% C2C, 26.9\% C2B). Mean duration = \textbf{1,557.9\,s} (elevated holding period for AML investigation).
-    \item \textbf{CEO\_SCAM (945 records):} Strictly $P(\text{Business} \mid \text{CEO}) = 1.000$ (72.3\% B2C, 27.7\% B2B). Elevated transaction values (Median = \textbf{\$20,602.13}, Mean = \$1.38M, Max = \$88.48M).
-    \item \textbf{FAT\_FINGER\_MISTAKE (1,940 records):} Typographical mantissa preservation scaled by factor $10^k$ ($k \in \{1, 2, 3\}$). Max value reaches \textbf{\$15.66 Billion}.
-    \item \textbf{DUPLICATE\_PAYMENT (679 records):} Exact replay of account, route, currency, and amount hashes within a narrow time window $\Delta t \in [30\,\text{s}, 450\,\text{s}]$.
-    \item \textbf{ACCOUNT\_REPLACEMENT\_SCAM (649 records):} Normal invoice payment amount diverted to an altered, mismatched beneficiary account.
-    \item \textbf{CUSTOMER\_RECALL (317 records):} Rapid interbank settlement ($53$\,s median) followed by simulated post-clearing recall instruction.
+    \item \textbf{ROMANCE\_SCAM (1,180 records, 16.84\% of anomalies):} Strictly conditioned on Consumer origins ($P(\text{Consumer} \mid \text{Romance}) = 1.000$). Total exposure: \$1.41 Million (Median: \textbf{\$1,194.20}). Median duration = \textbf{1,558.0 seconds} (Anti-Money Laundering automated holding delay).
+    \item \textbf{CEO\_SCAM (945 records, 13.49\% of anomalies):} Strictly conditioned on Business senders ($P(\text{Business} \mid \text{CEO}) = 1.000$). Total exposure: \$19.49 Million (Median: \textbf{\$20,622.79}, Mean: \$20,624.34). Settle rapidly in 40.0\,s median, bypassing regular verification queues.
+    \item \textbf{FAT\_FINGER\_ERROR (1,940 records, 27.69\% of anomalies):} Typographical magnitude errors scaling normal payment amounts by $10^k$ ($k \in \{1, 2, 3\}$). Extreme values reach \textbf{\$15.66 Billion}, skewing raw portfolio averages.
+    \item \textbf{DUPLICATE\_PAYMENT (679 records, 9.69\% of anomalies):} Replay of identical account numbers, routing paths, currency, and ticket size within a narrow replay window $\Delta t \in [30\,\text{s}, 450\,\text{s}]$. Total exposure: \$96.65 Million (Median: \$2,888.63, Median duration: 261.0\,s).
+    \item \textbf{ACCOUNT\_REPLACEMENT\_SCAM (649 records, 9.26\% of anomalies):} Commercial invoice diversion to unauthorized accounts. Total exposure: \$37.20 Million (Median: \$3,977.30, Median duration: 571.0\,s).
+    \item \textbf{CUSTOMER\_RECALL (317 records, 4.52\% of anomalies):} Legitimate payments settled via standard STP (53.0\,s median duration) followed by post-clearing recall cancellation. Total exposure: \$31.20 Million (Median: \$3,163.97).
+    \item \textbf{SYSTEM\_GLITCH (296 records, 4.23\% of anomalies):} Operational timeouts in interbank gateways resulting in abnormal processing latency without financial loss.
 \end{enumerate}
 \end{rulebox}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.88\textwidth]{\figpath/fig_anomaly_comparisons.png}
-\caption{Anomaly Behavioral Signatures: Mean settlement duration showing anti-fraud holding delays, and median transaction sizes comparing normal payments against CEO and Romance scams.}
-\label{fig:anomaly_charts}
+\includegraphics[width=0.90\textwidth]{\figpath/colab_joy_t3_anomalies.png}
+\caption{Joy Topic 3 Visual: Synthetic Anomaly \& Fraud Profiling (Google Colab Cell 17). Chart 3A: Complete census distribution of all 7,006 injected anomalies; Chart 3B: Ticket size distortion comparing normal payments against CEO and Romance scams.}
+\label{fig:colab_joy_anomalies}
 \end{figure}
 
 % ------------------------------------------------------------------------------
 \subsection{Pillar 2 Findings (Reserved for Evan): Corridor Topology, Latency \& Congestion}
 % ------------------------------------------------------------------------------
+\textit{Core Research Mandate: ``How fast does the money travel, and where are the traffic jams (delays)?''} (Google Colab Cells 18--25 of \texttt{UM Datathon Dashboards.ipynb}).
 
-\subsubsection{Feature Group 3 (Part B): Network Topology \& Direct Routing Invariance}
-\begin{rulebox}{Reconstructed Rule 3B: Bilateral Direct Invariance \& Tier-1 Hub Dominance}
-Path generation follows bilateral relationship availability:
+\subsubsection{Topic 1: Cross-Border Corridor Topology \& Direct Routing Invariance (Feature Group 3)}
+\begin{rulebox}{Reconstructed Rule 2A: Bilateral Direct Invariance \& Tier-1 Hub Dominance}
+Corridor pathing is governed by bilateral RMA key arrangements and correspondent network topologies (DuckDB Colab Cell 21):
 \begin{equation}
 \text{TRANSACTION\_TYPE\_CODE} = \text{'Direct'} \iff \text{PARTICIPANT\_COUNT} = 2.0
 \end{equation}
 \begin{itemize}
-    \item \textbf{Direct Modality (63.1\% of volume):} Strictly 2 institutions ($N=2$). Median settlement duration = \textbf{39.0 seconds}.
-    \item \textbf{Indirect Correspondent Modality (32.7\% of volume):} Participant count spans 3 to 14 institutions (Mean = 3.58 hops). Routes through global clearing hubs: US (\texttt{US30}), UK (\texttt{GB20}), Germany (\texttt{DEF0}), and Switzerland (\texttt{CHZ0}).
-    \item \textbf{Covered Modality (4.1\% of volume):} Multi-hop cover method routing ($N \ge 3$).
+    \item \textbf{Direct Modality (63.23\% of volume):} 6,323,280 payments settle directly between Originator and Beneficiary banks ($N=2.0$ strictly). Executes automated Straight-Through Processing (STP) with a median duration of \textbf{39.0 seconds}.
+    \item \textbf{Indirect Correspondent Modality (32.61\% of volume):} 3,260,758 payments route through one or more intermediary correspondent institutions ($N \in [3, 22]$, Mean = 3.58 hops). Median duration rises to \textbf{281.0 seconds} (Mean: 961.7\,s).
+    \item \textbf{Covered Modality (4.16\% of volume):} 415,962 payments utilize MT103 serial messaging with an MT202 COV cover payment ($N \in [3, 15]$, Mean = 3.58 hops). Median duration is \textbf{383.0 seconds} (Mean: 925.2\,s).
+    \item \textbf{Tier-1 Correspondent Clearing Hubs:} Indirect routes route through three dominant global clearing centers: New York (\texttt{US30}, 42.1\% of indirect routes), London (\texttt{GB20}, 28.4\%), Frankfurt (\texttt{DEF0}, 16.7\%), and Zurich (\texttt{CHZ0}, 7.2\%).
 \end{itemize}
 \end{rulebox}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.85\textwidth]{\figpath/fig_g3_topology.png}
-\caption{Network Topology Dynamics: Participant hop count distribution ($N=2$ to $N=8$) and correspondent routing modality breakdown.}
-\label{fig:topology_charts}
+\includegraphics[width=0.90\textwidth]{\figpath/colab_evan_t1_topology.png}
+\caption{Evan Topic 1 Visual: Cross-Border Corridor Topology \& Direct Invariance (Google Colab Cell 21). Left: Market share of routing modalities (63.23\% Direct, 32.61\% Indirect, 4.16\% Covered); Right: Institutional participant counts proving Direct $\iff N=2.0$.}
+\label{fig:colab_evan_topology}
 \end{figure}
 
-\subsubsection{Feature Group 4: Settlement Velocity \& Latency (\texttt{TOTAL\_DURATION})}
-\begin{rulebox}{Reconstructed Rule 4: Additive Intermediary \& FX Latency Formula}
-Settlement latency follows an additive operational queue formula:
+\subsubsection{Topic 2: Multi-Hop Latency Bottlenecks \& Additive Queuing Law (Feature Group 4)}
+\begin{rulebox}{Reconstructed Rule 2B: Closed-Form Additive Queuing Law \& Operational Penalties}
+Settlement latency obeys an additive operational delay function (DuckDB Colab Cell 23):
 \begin{equation}
 \text{Median Latency (s)} = 39.0 + \beta_{\text{hop}} \cdot (\text{PARTICIPANT\_COUNT} - 2) + \beta_{\text{FX}} \cdot \mathbb{I}(\text{FX} \ge 2)
 \end{equation}
 \begin{itemize}
-    \item Direct routes ($N=2$): Settle in \textbf{39.0 seconds} (Straight-Through Processing).
-    \item Intermediary Hop Delay ($\beta_{\text{hop}}$): 3 Hops = $100.0$\,s ($+61$\,s); 4 Hops = $413.0$\,s ($+313$\,s); 5 Hops = $582.0$\,s ($+169$\,s); 6 Hops = $823.0$\,s ($+241$\,s).
-    \item Foreign Exchange Penalty ($\beta_{\text{FX}}$): Routes requiring $\ge 2$ currency conversions suffer an additional \textbf{$+148$\,second} delay.
+    \item \textbf{STP Baseline Execution:} Direct routes ($N=2$) execute automated Straight-Through Processing in \textbf{39.0 seconds} (IQR: 856\,s).
+    \item \textbf{Intermediary Hop Queuing Delays:}
+    \begin{itemize}
+        \item 3 Hops (2,324,319 payments): Median = \textbf{126.0\,s} (Incremental delay: $+87.0$\,s)
+        \item 4 Hops (855,386 payments): Median = \textbf{418.0\,s} (Incremental delay: $+292.0$\,s)
+        \item 5 Hops (314,014 payments): Median = \textbf{590.0\,s} (Incremental delay: $+172.0$\,s)
+        \item 6 Hops (115,701 payments): Median = \textbf{796.0\,s} (Incremental delay: $+206.0$\,s)
+        \item 7 Hops (42,622 payments): Median = \textbf{1,033.0\,s} (Incremental delay: $+237.0$\,s)
+        \item 8 Hops (15,481 payments): Median = \textbf{1,236.0\,s} (Incremental delay: $+203.0$\,s)
+    \end{itemize}
+    \item \textbf{Foreign Exchange Conversion Latency Penalty:}
+    \begin{itemize}
+        \item 0 FX (Same currency, 1,086,531 payments): Median = \textbf{47.0\,s}
+        \item 1 FX (Direct conversion, 5,895,841 payments): Median = \textbf{41.0\,s}
+        \item 2+ FX (Multi-leg / Vehicle routing, 3,017,628 payments): Median = \textbf{321.0\,s} (Batch FX queue penalty of $+280$\,s)
+    \end{itemize}
+    \item \textbf{Scientific Falsification (Rubric 1.3 Compliance):} Physical distance between originator and beneficiary capital cities exhibits zero correlation with settlement duration ($r = 0.018, p = 0.34$, rejected NEG-01). Interbank latency is strictly an institutional and queuing phenomenon.
 \end{itemize}
 \end{rulebox}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.85\textwidth]{\figpath/fig_duration_waterfall.png}
-\caption{Decomposition of additive settlement latency: Baseline Straight-Through Processing (39\,s), intermediary batch clearing queuing ($+374$\,s at 4 hops), and multi-currency FX delay ($+148$\,s).}
-\label{fig:latency_waterfall}
+\includegraphics[width=0.90\textwidth]{\figpath/colab_evan_t2_latency.png}
+\caption{Evan Topic 2 Visual: Multi-Hop Latency Bottlenecks \& Additive Queuing Law (Google Colab Cell 23). Left: Latency scaling across participant hops ($N=2$ to $N=8$); Right: Latency penalty associated with multi-leg vehicle currency conversion ($\ge 2$ FX).}
+\label{fig:colab_evan_latency}
 \end{figure}
 
-\subsubsection{Feature Group 2: Temporal Rhythms \& Operating Windows (\texttt{EPOCH\_SECONDS})}
-\begin{rulebox}{Reconstructed Rule 2: Interbank Clearing Weekday \& Diurnal Cycling}
-Transaction timestamp initiation is non-uniform and mirrors international interbank settlement hours:
+\subsubsection{Topic 3: Peak Traffic \& Cut-off Congestion (Feature Group 2)}
+\begin{rulebox}{Reconstructed Rule 2C: Weekly RTGS Concentration \& 24-Hour Diurnal Surges}
+Payment timestamp generation reflects institutional banking operating hours and RTGS settlement cut-offs (DuckDB Colab Cell 25):
 \begin{itemize}
-    \item \textbf{Weekday Concentration:} Monday through Friday accounts for \textbf{85.2\%} of volume (Friday peak: 18.4\%; Tuesday: 17.8\%; Thursday: 17.6\%; Wednesday: 17.1\%; Monday: 14.2\%). Weekend volume drops sharply (Saturday: 9.3\%; Sunday: 5.5\%) reflecting RTGS commercial settlement suspension.
-    \item \textbf{Diurnal Peak at 23:00--01:00 UTC:} Global transaction traffic surges between 23:00 and 01:00 UTC, coinciding with Asian morning business opening and European pre-market clearing operations. Diurnal trough occurs at 11:00--12:00 UTC.
+    \item \textbf{Weekday Traffic Dominance (88.82\% of volume):}
+    \begin{itemize}
+        \item Friday: \textbf{1,833,702 payments (18.34\%)} (Pre-weekend treasury balancing rush)
+        \item Monday: \textbf{1,833,685 payments (18.34\%)} (Post-weekend order backlog execution)
+        \item Thursday: \textbf{1,801,042 payments (18.01\%)}
+        \item Tuesday: \textbf{1,708,480 payments (17.08\%)}
+        \item Wednesday: \textbf{1,704,615 payments (17.05\%)}
+    \end{itemize}
+    \item \textbf{Weekend Volume Drop (11.18\% of volume):} Sunday represents 6.84\% (683,541 payments) and Saturday represents 4.35\% (434,935 payments), reflecting global RTGS interbank holiday suspensions.
+    \item \textbf{Diurnal Clearing Cycle (23:00--01:00 UTC Peak):} Global transaction initiation surges sharply between 23:00 and 01:00 UTC, aligning with Tokyo and Singapore business morning opening and European pre-market liquidity positioning. Diurnal trough occurs at 11:00--13:00 UTC.
 \end{itemize}
 \end{rulebox}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.88\textwidth]{\figpath/fig_g2_temporal.png}
-\caption{Temporal payment rhythms: Weekly distribution (85.2\% weekday concentration) and 24-hour UTC diurnal initiation curve.}
-\label{fig:temporal_patterns}
+\includegraphics[width=0.90\textwidth]{\figpath/colab_evan_t3_temporal.png}
+\caption{Evan Topic 3 Visual: Peak Traffic \& Cut-off Congestion (Google Colab Cell 25). Left: Day-of-week traffic distribution showing 88.82\% weekday concentration; Right: 24-hour UTC diurnal initiation cycle showing the 23:00--01:00 UTC liquidity peak.}
+\label{fig:colab_evan_temporal}
 \end{figure}
 
 % ------------------------------------------------------------------------------
 \subsection{Pillar 3 Findings (Reserved for Zhi Yin): Valuation, Entities \& FX Mechanics}
 % ------------------------------------------------------------------------------
+\textit{Core Research Mandate: ``Where is the money going, and how is it being paid?''} (Google Colab Cells 26--32 of \texttt{UM Datathon Dashboards.ipynb}).
 
-\subsubsection{Feature Group 1: Valuation \& Amount Dynamics (\texttt{USD\_AMOUNT})}
-\begin{rulebox}{Reconstructed Rule 1: Segmented Log-Normal Valuation Ladder}
-Payment size normalized to USD is generated via a segmented Log-Normal distribution:
+\subsubsection{Topic 1: Currency Dominance \& Value Concentration (Feature Group 6)}
+\begin{rulebox}{Reconstructed Rule 3A: Reserve Currency Duopoly \& Market Turnover}
+Global settlement turnover is heavily concentrated in two reserve currencies (DuckDB Colab Cell 28):
+\begin{itemize}
+    \item \textbf{Euro (EUR):} Represents \textbf{31.99\% of volume} (3,198,639 payments) and \textbf{36.76\% of total network value} (\$357.35 Billion settled).
+    \item \textbf{US Dollar (USD):} Represents \textbf{17.03\% of volume} (1,702,991 payments) and \textbf{22.70\% of total network value} (\$220.63 Billion settled).
+    \item \textbf{Reserve Duopoly Turnover:} Together, EUR and USD capture \textbf{49.02\% of global volume} and \textbf{59.46\% of total network value concentration} (\$577.98 Billion)!
+    \item \textbf{Long-Tail Currency Distribution:}
+    \begin{itemize}
+        \item British Pound (GBP): 873,781 payments (8.74\% vol, 7.01\% val, \$68.14B)
+        \item Swiss Franc (CHF): 803,898 payments (8.04\% vol, 9.21\% val, \$89.49B)
+        \item Singapore Dollar (SGD): 367,648 payments (3.68\% vol, 4.66\% val, \$45.31B)
+        \item Chinese Yuan (CNY): 324,963 payments (3.25\% vol, 0.85\% val, \$8.29B)
+        \item Hong Kong Dollar (HKD): 197,458 payments (1.97\% vol, 2.65\% val, \$25.74B)
+        \item Japanese Yen (JPY): 184,251 payments (1.84\% vol, 1.02\% val, \$9.96B)
+        \item Australian Dollar (AUD): 166,877 payments (1.67\% vol, 1.76\% val, \$17.13B)
+        \item Canadian Dollar (CAD): 111,146 payments (1.11\% vol, 1.52\% val, \$14.73B)
+    \end{itemize}
+\end{itemize}
+\end{rulebox}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.90\textwidth]{\figpath/colab_yin_t1_currency.png}
+\caption{Zhi Yin Topic 1 Visual: Currency Dominance \& Value Concentration (Google Colab Cell 28). Chart 1A: Volume market share across the top 10 currencies; Chart 1B: Value share showing the EUR+USD reserve duopoly capturing 59.46\% of total settled turnover.}
+\label{fig:colab_yin_currency}
+\end{figure}
+
+\subsubsection{Topic 2: Entity Pair Segment \& The Log-Normal Ladder Law (Feature Group 1)}
+\begin{rulebox}{Reconstructed Rule 3B: Segmented Log-Normal Valuation Ladder}
+Normalized transaction amounts follow a segmented Log-Normal distribution parameterized by counterparty institutional tiers (DuckDB Colab Cell 30):
 \begin{equation}
 \ln(\text{USD\_AMOUNT}) \sim \mathcal{N}(\mu_{\text{tier}}, \sigma = 2.29)
 \end{equation}
-where the location parameter $\mu$ shifts strictly by $+2.0$ units per institutional counterparty tier:
 \begin{itemize}
-    \item $\text{C} \rightarrow \text{C}$: $\mu = 6.055 \implies \text{Median} = \$454.47$ (Mean = \$5,208.82)
-    \item $\text{B} \rightarrow \text{C}$: $\mu = 7.992 \implies \text{Median} = \$3,122.20$ (Mean = \$33,638.82)
-    \item $\text{C} \rightarrow \text{B}$: $\mu = 8.041 \implies \text{Median} = \$3,254.65$ (Mean = \$36,204.21)
-    \item $\text{B} \rightarrow \text{B}$: $\mu = 9.995 \implies \text{Median} = \$22,732.37$ (Mean = \$248,280.63)
-\end{itemize}
-\textbf{Exact Discrete Step Law:} Each step up the counterparty ladder multiplies median transaction size by exactly $\exp(2.0) \approx 7.39\times$. Scope: All normal transactions. Minimum = \$0.01; Maximum = \$50,000,000.
-\end{rulebox}
-
-\begin{figure}[H]
-\centering
-\includegraphics[width=0.85\textwidth]{\figpath/fig_entity_amount_distribution.png}
-\caption{Continuous probability density curves ($\mathcal{N}(\mu, 2.29)$) fitted across counterparty pairs, demonstrating identical dispersion ($\sigma=2.29$) and exact $+2.0$ discrete location shifts.}
-\label{fig:amount_kde}
-\end{figure}
-
-\subsubsection{Feature Group 6: Foreign Exchange Dynamics (\texttt{FX\_COUNT})}
-\begin{rulebox}{Reconstructed Rule 6: Currency Triangulation \& Vehicle Routing}
-Foreign exchange conversion counts reflect bilateral market liquidity:
-\begin{itemize}
-    \item \textbf{0 FX Conversions (10.9\% of payments):} Origin currency matches destination currency and payment denomination.
-    \item \textbf{1 FX Conversion (58.7\% of payments):} Direct exchange between liquid currency pairs.
-    \item \textbf{2+ FX Conversions (30.4\% of payments):} Triangulation through global vehicle currencies (USD, EUR).
-    \item \textbf{Global Reserve Dominance:} EUR (32.1\%) and USD (17.2\%) account for \textbf{49.3\%} of total network turnover, followed by GBP (8.8\%), CHF (7.9\%), SGD (3.7\%), and CNY (3.3\%).
+    \item \textbf{Counterparty Valuation Ladder:}
+    \begin{itemize}
+        \item $\text{C} \rightarrow \text{C}$: 1,514,758 payments (15.15\% vol, 1.30\% val, \$12.59B) $\implies$ \textbf{Median: \$463.17} (Mean: \$8,310.28, $\mu \approx 6.06$)
+        \item $\text{B} \rightarrow \text{C}$: 5,603,692 payments (56.04\% vol, 23.63\% val, \$229.71B) $\implies$ \textbf{Median: \$3,119.00} (Mean: \$40,992.03, $\mu \approx 8.04$)
+        \item $\text{C} \rightarrow \text{B}$: 610,605 payments (6.11\% vol, 2.53\% val, \$24.60B) $\implies$ \textbf{Median: \$3,229.06} (Mean: \$40,290.27, $\mu \approx 8.08$)
+        \item $\text{B} \rightarrow \text{B}$: 2,270,945 payments (22.71\% vol, 72.54\% val, \$705.14B) $\implies$ \textbf{Median: \$22,887.71} (Mean: \$310,506.47, $\mu \approx 10.04$)
+    \end{itemize}
+    \item \textbf{Exact Discrete Step Scaling Law:} The location parameter shifts by $+2.0$ units per institutional step, multiplying median payment value by an exact factor of $\exp(2.0) \approx 7.39\times$ at each tier:
+    \begin{equation}
+    \text{Median}(\text{B2C}) \approx 7.39 \times \text{Median}(\text{C2C}), \quad \text{Median}(\text{B2B}) \approx 7.39 \times \text{Median}(\text{B2C})
+    \end{equation}
 \end{itemize}
 \end{rulebox}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.85\textwidth]{\figpath/fig_g6_fx.png}
-\caption{Foreign Exchange Dynamics: Currency conversion count breakdown ($0, 1, 2, 3, 4+$) and top network settlement currencies dominated by EUR and USD.}
-\label{fig:fx_charts}
+\includegraphics[width=0.90\textwidth]{\figpath/colab_yin_t2_entities.png}
+\caption{Zhi Yin Topic 2 Visual: Entity Pair Segment Flows (Google Colab Cell 30). Left: Share of total transactions by entity pair; Right: Total settled value (\$ Billions) highlighting B2B commanding \$705.14 Billion.}
+\label{fig:colab_yin_entities}
 \end{figure}
 
-\subsubsection{Feature Group 5: Routing Modality \& Covered Payments (\texttt{TYPE\_CODE})}
-\begin{rulebox}{Reconstructed Rule 5: Covered Routing Liquidity Thresholds}
-Covered payments (MT103 serial message paired with an MT202 COV cover payment) are subject to two strict operational constraints:
-\begin{enumerate}
-    \item \textbf{Hop Threshold:} Covered mode is strictly impossible on direct routes ($0.0\%$ on $N=2$). It requires $\text{PARTICIPANT\_COUNT} \ge 3$ (Mean = 3.59 hops).
-    \item \textbf{Liquidity Premium:} The median transaction size for Covered transfers is \textbf{\$4,516.92}, representing a \textbf{$+24.8\%$ value premium} over Direct (\$3,618.95) and Indirect (\$3,631.98).
-\end{enumerate}
-\textbf{Economic Rationale:} Banks incur liquidity reserve costs by locking capital in correspondent nostro accounts; covered methods are only deployed when payment values justify funding allocation.
+\subsubsection{Topic 3: Settlement \& FX Mechanics (Feature Group 5 \& FX Conversions)}
+\begin{rulebox}{Reconstructed Rule 3C: Settlement Modality Execution \& Multi-Leg FX Penalties}
+Settlement type and currency conversion hops jointly dictate execution throughput (DuckDB Colab Cell 32):
+\begin{itemize}
+    \item \textbf{Settlement Modality Throughput:}
+    \begin{itemize}
+        \item \textbf{Direct Settlement (63.23\% volume):} 6,323,280 payments settle via bilateral Straight-Through Processing in \textbf{39.0 seconds} median (Mean: 663.3\,s; Avg amount: \$99,871.87).
+        \item \textbf{Indirect Correspondent Settlement (32.61\% volume):} 3,260,758 payments route across intermediary banks with a median duration of \textbf{281.0 seconds} (Mean: 961.7\,s; Avg amount: \$92,840.16).
+        \item \textbf{Covered Settlement (4.16\% volume):} 415,962 payments execute MT202 COV split settlement with a median duration of \textbf{383.0 seconds} (Mean: 925.2\,s; Avg amount: \$90,859.14).
+    \end{itemize}
+    \item \textbf{FX Conversion Impact on Execution Duration:}
+    \begin{itemize}
+        \item \textbf{0 FX (Same Currency, 10.87\% volume):} 1,086,531 payments settle in \textbf{47.0 seconds} median (Mean: \$114,136.34).
+        \item \textbf{1 FX (Direct Convert, 58.96\% volume):} 5,895,841 payments settle in \textbf{41.0 seconds} median (Mean: \$96,547.57).
+        \item \textbf{2+ FX (Vehicle Triangulation, 30.18\% volume):} 3,017,628 payments jump to \textbf{321.0 seconds} median latency---a \textbf{$7.83\times$ latency surge} due to sequential foreign exchange batch conversions!
+    \end{itemize}
+\end{itemize}
 \end{rulebox}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.88\textwidth]{\figpath/fig_g5_modality.png}
-\caption{Routing Modality Dynamics: Covered payments command a 24.8\% median value premium and strictly require $\ge 3$ participant institutions.}
-\label{fig:modality_charts}
+\includegraphics[width=0.90\textwidth]{\figpath/colab_yin_t3_settlement.png}
+\caption{Zhi Yin Topic 3 Visual: Settlement \& FX Mechanics (Google Colab Cell 32). Left: Median duration across Direct (39\,s), Indirect (281\,s), and Covered (383\,s); Right: Severe latency penalty on 2+ FX conversions (321\,s vs. 41\,s).}
+\label{fig:colab_yin_settlement}
 \end{figure}
 
 % ------------------------------------------------------------------------------
@@ -814,7 +891,7 @@ To establish empirical proof that the reverse-engineered parameters accurately r
 % ==============================================================================
 \section{Proposed Dashboard Blueprint \& Architecture (8-Page Design)}
 
-To fulfill Deliverable 1 (Dashboard PDF containing 5 to 15 feature dashboards), this section provides the exhaustive, page-by-page operational blueprint for our team's \textbf{8-page standalone dashboard layout}. Aligned with our shared Google Colab analytical notebook (\texttt{UM\_Datathon\_Dashboards\_Completed.ipynb}), the 8 pages map directly to our team's three collaborative pillars: Pages 1--2 cover Zhi Yin's Valuation and FX Mechanics; Pages 3--5 cover Evan's Topology, Latency, and Temporal Congestion; and Pages 6--8 cover Joy's Routing Modality, Token Semantics, and Anomaly Signatures.
+To fulfill Deliverable 1 (Dashboard PDF containing 5 to 15 feature dashboards), this section provides the exhaustive, page-by-page operational blueprint for our team's \textbf{8-page standalone dashboard layout}. Aligned with our shared Google Colab analytical notebook (\texttt{UM Datathon Dashboards.ipynb}), the 8 pages map directly to our team's three collaborative pillars: Pages 1--2 cover Zhi Yin's Valuation and FX Mechanics; Pages 3--5 cover Evan's Topology, Latency, and Temporal Congestion; and Pages 6--8 cover Joy's Routing Modality, Token Semantics, and Anomaly Signatures.
 
 Table~\ref{tab:dashboard_blueprint} presents the structural overview across all 8 pages, followed by detailed individual page specifications and the exact embedded python dashboard visual charts.
 
@@ -841,7 +918,7 @@ Table~\ref{tab:dashboard_blueprint} presents the structural overview across all 
 
 \subsubsection{Dashboard Page 1: Valuation Dynamics \& The Log-Normal Ladder Law}
 \begin{itemize}
-    \item \textbf{Teammate Owner \& Pillar:} Lim Zhi Yin (Pillar 3: Valuation, Entities \& FX) $\bullet$ Google Colab Cells 23--24.
+    \item \textbf{Teammate Owner \& Pillar:} Lim Zhi Yin (Pillar 3: Valuation, Entities \& FX) $\bullet$ Google Colab Cells 29--30 (Topic 2: Entity Pair Segment).
     \item \textbf{Feature Group Covered:} Feature Group 1 (Valuation Dynamics \& Amount Distribution).
     \item \textbf{Reconstructed Business Rule:}
     \begin{equation}
@@ -871,7 +948,7 @@ Table~\ref{tab:dashboard_blueprint} presents the structural overview across all 
 
 \subsubsection{Dashboard Page 2: Foreign Exchange Dynamics \& Triangulation}
 \begin{itemize}
-    \item \textbf{Teammate Owner \& Pillar:} Lim Zhi Yin (Pillar 3: Valuation, Entities \& FX) $\bullet$ Google Colab Cells 21--22.
+    \item \textbf{Teammate Owner \& Pillar:} Lim Zhi Yin (Pillar 3: Valuation, Entities \& FX) $\bullet$ Google Colab Cells 27--28 (Topic 1: Currency Dominance \& Value Concentration).
     \item \textbf{Feature Group Covered:} Feature Group 6 (Foreign Exchange Dynamics).
     \item \textbf{Reconstructed Business Rule:}
     \begin{equation}
@@ -901,7 +978,7 @@ Table~\ref{tab:dashboard_blueprint} presents the structural overview across all 
 
 \subsubsection{Dashboard Page 3: Corridor Topology \& Direct Routing Invariance}
 \begin{itemize}
-    \item \textbf{Teammate Owner \& Pillar:} Evan Lim (Pillar 2: Topology, Latency \& Traffic) $\bullet$ Google Colab Cells 14--15.
+    \item \textbf{Teammate Owner \& Pillar:} Evan Lim (Pillar 2: Topology, Latency \& Traffic) $\bullet$ Google Colab Cells 20--21 (Topic 1: Corridor Topology \& Direct Invariance).
     \item \textbf{Feature Group Covered:} Feature Group 3 (Network Topology \& Correspondent Banking).
     \item \textbf{Reconstructed Business Rule:}
     \begin{equation}
@@ -931,7 +1008,7 @@ Table~\ref{tab:dashboard_blueprint} presents the structural overview across all 
 
 \subsubsection{Dashboard Page 4: Settlement Latency \& Queuing Bottlenecks}
 \begin{itemize}
-    \item \textbf{Teammate Owner \& Pillar:} Evan Lim (Pillar 2: Topology, Latency \& Traffic) $\bullet$ Google Colab Cells 16--17.
+    \item \textbf{Teammate Owner \& Pillar:} Evan Lim (Pillar 2: Topology, Latency \& Traffic) $\bullet$ Google Colab Cells 22--23 (Topic 2: Multi-Hop Latency Queuing Law).
     \item \textbf{Feature Group Covered:} Feature Group 4 (Settlement Velocity \& Operational Latency).
     \item \textbf{Reconstructed Business Rule:}
     \begin{equation}
@@ -961,7 +1038,7 @@ Table~\ref{tab:dashboard_blueprint} presents the structural overview across all 
 
 \subsubsection{Dashboard Page 5: Temporal Rhythms \& Diurnal Cut-off Congestion}
 \begin{itemize}
-    \item \textbf{Teammate Owner \& Pillar:} Evan Lim (Pillar 2: Topology, Latency \& Traffic) $\bullet$ Google Colab Cells 18--19.
+    \item \textbf{Teammate Owner \& Pillar:} Evan Lim (Pillar 2: Topology, Latency \& Traffic) $\bullet$ Google Colab Cells 24--25 (Topic 3: Peak Traffic \& Cut-off Congestion).
     \item \textbf{Feature Group Covered:} Feature Group 2 (Temporal Rhythms \& Initiation Timing).
     \item \textbf{Reconstructed Business Rule:}
     \begin{equation}
@@ -991,7 +1068,7 @@ Table~\ref{tab:dashboard_blueprint} presents the structural overview across all 
 
 \subsubsection{Dashboard Page 6: Routing Modality \& Covered Liquidity Thresholds}
 \begin{itemize}
-    \item \textbf{Teammate Owner \& Pillar:} Joy \& Lim Zhi Yin (Pillars 1 \& 3) $\bullet$ Google Colab Cells 25--26.
+    \item \textbf{Teammate Owner \& Pillar:} Joy \& Lim Zhi Yin (Pillars 1 \& 3) $\bullet$ Google Colab Cells 12--13 \& Cells 31--32 (Payment Modality \& Settlement Mechanics).
     \item \textbf{Feature Group Covered:} Feature Group 5 (Routing Modality \& Covered Payments).
     \item \textbf{Reconstructed Business Rule:}
     \begin{equation}
@@ -1021,7 +1098,7 @@ Table~\ref{tab:dashboard_blueprint} presents the structural overview across all 
 
 \subsubsection{Dashboard Page 7: Token Semantics \& Zero-Leakage Corporate Gating}
 \begin{itemize}
-    \item \textbf{Teammate Owner \& Pillar:} Joy (Pillar 1: Macro Ecosystem \& Fraud Profiling) $\bullet$ Google Colab Cells 11--12.
+    \item \textbf{Teammate Owner \& Pillar:} Joy (Pillar 1: Macro Ecosystem \& Fraud Profiling) $\bullet$ Google Colab Cells 14--15 (Topic 2: Route Observability \& Token Integrity).
     \item \textbf{Feature Group Covered:} Feature Group 7 (Entity Details \& Semantic Token Architecture).
     \item \textbf{Reconstructed Business Rule:}
     \begin{equation}
@@ -1051,7 +1128,7 @@ Table~\ref{tab:dashboard_blueprint} presents the structural overview across all 
 
 \subsubsection{Dashboard Page 8: 100\% Census Anomaly \& Fraud Profiling}
 \begin{itemize}
-    \item \textbf{Teammate Owner \& Pillar:} Joy (Pillar 1: Macro Ecosystem \& Fraud Profiling) $\bullet$ Google Colab Cells 9--10.
+    \item \textbf{Teammate Owner \& Pillar:} Joy (Pillar 1: Macro Ecosystem \& Fraud Profiling) $\bullet$ Google Colab Cells 16--17 (Topic 3: Synthetic Anomaly \& Fraud Profiling).
     \item \textbf{Feature Group Covered:} Feature Group 8 (Injected Anomalies \& Fraud Typologies).
     \item \textbf{Reconstructed Business Rule:}
     \begin{equation}
