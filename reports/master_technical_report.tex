@@ -927,22 +927,22 @@ Table~\ref{tab:dashboard_blueprint} presents the structural overview across all 
     The normalized payment amount strictly follows a segmented Log-Normal distribution. The location parameter $\mu$ shifts by exactly $+2.0$ discrete increments per counterparty institutional tier, multiplying median transaction value by an exact factor of $\exp(2.0) \approx 7.39\times$ at each step.
     \item \textbf{Top KPI Metric Cards:}
     \begin{enumerate}
-        \item \textbf{C2C Remittances:} Median \textbf{\$454.47} ($\mu = 6.055$, Mean = \$5,208.82)
-        \item \textbf{B2C Payroll:} Median \textbf{\$3,122.20} ($\mu = 7.992$, $+2.0$ shift, Mean = \$33,638.82)
-        \item \textbf{C2B Merchant Purchases:} Median \textbf{\$3,254.65} ($\mu = 8.041$, $+2.0$ shift, Mean = \$36,204.21)
-        \item \textbf{B2B Wholesale Settlement:} Median \textbf{\$22,732.37} ($\mu = 9.995$, $+4.0$ shift, Mean = \$248,280.63)
-        \item \textbf{Common Dispersion:} $\sigma = 2.29 \pm 0.02$ (Empirically invariant across all global corridors)
+        \item \textbf{B2B Liquidity Concentration:} \textbf{72.54\% of Value} (\$705.14B settled out of \$972.04B) on 22.71\% volume share.
+        \item \textbf{B2B Wholesale Median:} Median \textbf{\$22,887.71} (Mean: \$310,506.47, $\mu \approx 10.04$, $+4.0$ shift).
+        \item \textbf{B2C Payroll Disbursements:} Median \textbf{\$3,119.00} (56.04\% volume, \$229.71B value, $\mu \approx 8.04$, $+2.0$ shift).
+        \item \textbf{C2C Discretionary Remittances:} Median \textbf{\$463.17} (15.15\% volume, \$12.59B value, $\mu \approx 6.06$).
+        \item \textbf{Exact Step Scaling Law:} $\Delta \mu = +2.0 \implies 7.39\times$ value multiplier per tier; common dispersion $\sigma = 2.29 \pm 0.02$.
     \end{enumerate}
-    \item \textbf{Primary Chart Visual:} Multi-tier violin plot and logarithmic boxplot of $\ln(\text{USD\_AMOUNT})$ across all four counterparty pairs (\texttt{C2C}, \texttt{B2C}, \texttt{C2B}, \texttt{B2B}), demonstrating identical probability bell-curves ($\sigma=2.29$) displaced along the vertical axis by $+2.0$ location shifts.
-    \item \textbf{Comparative Baseline Chart:} Grouped bar chart comparing empirical medians against theoretical ladder predictions ($M_0 \times 7.39^k$), demonstrating relative estimation error $<1.8\%$ across all four tiers.
+    \item \textbf{Primary Chart Visual:} Grouped comparison plot of transaction volume share vs. total settled USD value across counterparty pairs, demonstrating the overwhelming commercial concentration in B2B.
+    \item \textbf{Comparative Baseline Chart:} Continuous probability density curves ($\mathcal{N}(\mu, 2.29)$) fitted across counterparty pairs demonstrating identical dispersion and $+2.0$ discrete location shifts.
     \item \textbf{Interactive Filter Hooks:} Currency corridor selector (e.g., \texttt{US -> GB}, \texttt{DE -> FR}), ISO currency dropdown (\texttt{EUR}, \texttt{USD}, \texttt{GBP}), and outlier trimming toggle (exclude $>\$10\text{M}$ fat-finger records).
     \item \textbf{Real-World Banking Rationale:} Consumer remittances reflect individual discretionary income (\$100--\$1,000); corporate payroll and merchant e-commerce reflect monthly employee salaries and bulk consumer retail goods (\$1,000--\$10,000); inter-enterprise B2B payments reflect commercial supply chain invoices, shipping container charters, and corporate treasury liquidity clearings (\$10,000--\$100,000+).
 \end{itemize}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.88\textwidth]{\figpath/fig_g1_amount.png}
-\caption{Dashboard Page 1 Visual: Valuation dynamics across counterparty tiers displaying logarithmic distributions and empirical median steps.}
+\includegraphics[width=0.88\textwidth]{\figpath/colab_yin_t2_entities.png}
+\caption{Dashboard Page 1 Visual: Entity Pair Payment Flows and Value Concentration (Google Colab Cell 30). Left: Share of total volume; Right: Settled value (\$ Billions) highlighting B2B commanding \$705.14 Billion.}
 \label{fig:dash_p1}
 \end{figure}
 
@@ -954,145 +954,145 @@ Table~\ref{tab:dashboard_blueprint} presents the structural overview across all 
     \begin{equation}
     \text{FX\_STEPS} \in \{0, 1, 2, 3, 4+\} \quad \text{Conditioned on Corridor Liquidity (Not Amount)}
     \end{equation}
-    Global reserve currency duopoly (EUR 32.1\% + USD 17.2\%) captures 49.3\% of total volume and 59.1\% of total network turnover. Thin exotic corridors lack direct market quotes and must triangulate through USD or EUR ($\ge 2$ conversions).
+    Global reserve currency duopoly (EUR 31.99\% + USD 17.03\%) captures 49.02\% of total volume and 59.46\% of total settled turnover (\$577.98 Billion). Thin exotic corridors lack direct market quotes and must triangulate through USD or EUR ($\ge 2$ conversions).
     \item \textbf{Top KPI Metric Cards:}
     \begin{enumerate}
-        \item \textbf{Zero FX (Native):} \textbf{10.9\%} (Origin currency matches payment and destination)
-        \item \textbf{Direct Bilateral FX:} \textbf{58.7\%} (Single foreign exchange conversion)
-        \item \textbf{Triangulated Vehicle FX:} \textbf{30.4\%} ($\ge 2$ conversions via global reserve currencies)
-        \item \textbf{Reserve Duopoly Turnover:} \textbf{49.3\%} Volume $\bullet$ \textbf{59.1\%} Total Value
-        \item \textbf{Rejected NEG-02:} Amount vs FX Step ANOVA $F=0.82$ ($p=0.58$, statistically independent)
+        \item \textbf{Euro Dominance (EUR):} \textbf{31.99\% Volume} $\bullet$ \textbf{36.76\% Total Value} (\$357.35B settled).
+        \item \textbf{US Dollar Dominance (USD):} \textbf{17.03\% Volume} $\bullet$ \textbf{22.70\% Total Value} (\$220.63B settled).
+        \item \textbf{Reserve Duopoly Turnover:} Combined \textbf{49.02\% Volume} $\bullet$ \textbf{59.46\% Total Settled Value} (\$577.98B).
+        \item \textbf{Triangulated Vehicle FX:} \textbf{30.18\%} ($\ge 2$ conversions via global reserve currencies, median duration 321.0\,s).
+        \item \textbf{Rejected NEG-02:} Amount vs FX Step ANOVA $F=0.82$ ($p=0.58$, statistically independent).
     \end{enumerate}
-    \item \textbf{Primary Chart Visual:} Stacked 100\% bar chart of FX conversion counts ($0, 1, 2, 3+$) across the top 10 global currency corridors.
-    \item \textbf{Comparative Baseline Chart:} Horizontal ranking bar chart of total network turnover value across the top 10 currencies (EUR, USD, GBP, CHF, SGD, CAD, AUD, JPY, CNY, SEK).
+    \item \textbf{Primary Chart Visual:} Currency dominance by transaction volume share and total USD value concentration share across the top 10 global settlement currencies.
+    \item \textbf{Comparative Baseline Chart:} FX conversion step distribution ($0, 1, 2, 3+$) across the top 10 global currency corridors.
     \item \textbf{Interactive Filter Hooks:} Origin Currency Filter, Destination Currency Filter, and Minimum Transaction Value Slicer.
     \item \textbf{Real-World Banking Rationale:} Global foreign exchange markets operate through vehicle currencies. Direct interbank order books exist only for deep currency pairs (e.g., EUR/USD, GBP/USD). Thin pairs (e.g., SEK to THB) lack direct market makers; banks must convert SEK $\to$ USD, then USD $\to$ THB, incurring multiple conversion hops.
 \end{itemize}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.88\textwidth]{\figpath/fig_g6_fx.png}
-\caption{Dashboard Page 2 Visual: Currency conversion count breakdown ($0, 1, 2, 3, 4+$) and reserve currency turnover concentration.}
+\includegraphics[width=0.88\textwidth]{\figpath/colab_yin_t1_currency.png}
+\caption{Dashboard Page 2 Visual: Currency Dominance and Turnover Concentration (Google Colab Cell 28). Left: Volume market share across the top 10 currencies; Right: Value share showing the EUR+USD reserve duopoly capturing 59.46\% of total network value.}
 \label{fig:dash_p2}
 \end{figure}
 
 \subsubsection{Dashboard Page 3: Corridor Topology \& Direct Routing Invariance}
 \begin{itemize}
     \item \textbf{Teammate Owner \& Pillar:} Evan Lim (Pillar 2: Topology, Latency \& Traffic) $\bullet$ Google Colab Cells 20--21 (Topic 1: Corridor Topology \& Direct Invariance).
-    \item \textbf{Feature Group Covered:} Feature Group 3 (Network Topology \& Correspondent Banking).
+    \item \textbf{Feature Group Covered:} Feature Group 3 (Interbank Network Topology).
     \item \textbf{Reconstructed Business Rule:}
     \begin{equation}
     \text{TRANSACTION\_TYPE\_CODE} = \text{'Direct'} \iff \text{PARTICIPANT\_COUNT} = 2.0
     \end{equation}
-    63.1\% of global payments execute directly via bilateral RMA links ($N=2.0$). The remaining 36.9\% route through multi-hop correspondent clearing hubs centered on New York (\texttt{US30}), London (\texttt{GB20}), Frankfurt (\texttt{DEF0}), and Zurich (\texttt{CHZ0}).
+    A transaction executes direct settlement if and only if the bilateral corridor connects exactly two institutions ($N=2$). All indirect and covered payments require $\ge 3$ institutions and funnel through global clearing hubs.
     \item \textbf{Top KPI Metric Cards:}
     \begin{enumerate}
-        \item \textbf{Direct Modality Share:} \textbf{63.1\%} (Strictly $N=2.0$ institutions)
-        \item \textbf{Indirect Correspondent Share:} \textbf{32.7\%} (Mean $N=3.58$ institutions, max 14)
-        \item \textbf{Covered Modality Share:} \textbf{4.1\%} ($N \ge 3$ institutions)
-        \item \textbf{Top Correspondent Hubs:} \texttt{US30} (34.2\%), \texttt{GB20} (22.1\%), \texttt{DEF0} (18.4\%)
-        \item \textbf{Path Observability:} 87.6\% Continuous (\texttt{Y}), 12.4\% Masked (\texttt{N})
+        \item \textbf{Direct Settlement Share:} \textbf{63.23\% Volume} (6,323,280 payments), strictly $N=2.0$, median duration \textbf{39.0 seconds}.
+        \item \textbf{Indirect Correspondent Share:} \textbf{32.61\% Volume} (3,260,758 payments), $N \in [3, 22]$ (mean 3.58 hops), median duration \textbf{281.0 seconds}.
+        \item \textbf{Covered Split Modality:} \textbf{4.16\% Volume} (415,962 payments), $N \in [3, 15]$ (mean 3.58 hops), median duration \textbf{383.0 seconds}.
+        \item \textbf{Tier-1 Clearing Hub Concentration:} New York (\texttt{US30}, 42.1\%), London (\texttt{GB20}, 28.4\%), Frankfurt (\texttt{DEF0}, 16.7\%).
+        \item \textbf{Network Radius Extremes:} Maximum participant chain reaches \textbf{22 hops} in multi-jurisdictional correspondent routes.
     \end{enumerate}
-    \item \textbf{Primary Chart Visual:} Discrete bar distribution of participant institution counts ($N = 2, 3, 4, 5, 6, 7, 8+$) illustrating the dominant $N=2$ bilateral peak.
-    \item \textbf{Comparative Baseline Chart:} Concentric donut chart illustrating overall modality breakdown (Direct 63.1\%, Indirect 32.7\%, Covered 4.1\%) with clearing hub market share callouts.
-    \item \textbf{Interactive Filter Hooks:} Clearing Hub Selector (\texttt{US30}, \texttt{GB20}, \texttt{DEF0}, \texttt{CHZ0}), Path Continuity Toggle (\texttt{CONTINUITY\_QFLAG = Y/N}).
-    \item \textbf{Real-World Banking Rationale:} Direct routing requires an active bilateral Relationship Management Application (RMA) key and reciprocal nostro/vostro funding accounts. Smaller tier-2 and tier-3 banks cannot maintain reciprocal capital in thousands of global banks; they maintain accounts with Tier-1 correspondent clearing hubs that route payments onward.
+    \item \textbf{Primary Chart Visual:} Routing modality market share bar chart and institutional participant count distributions across Direct, Indirect, and Covered modes.
+    \item \textbf{Comparative Baseline Chart:} Top intermediary correspondent BIC8 clearing hubs ranked by routing volume share.
+    \item \textbf{Interactive Filter Hooks:} Origin Bank Country, Beneficiary Bank Country, Clearing Modality Selector, and Minimum Hop Count Slider.
+    \item \textbf{Real-World Banking Rationale:} Banks establish bilateral Relationship Management Application (RMA) keys and reciprocal nostro/vostro accounts with a limited set of tier-1 correspondents. Payments between institutions lacking direct credit lines must route through global money-center banks (e.g., in NY, London, Frankfurt) acting as settlement bridges.
 \end{itemize}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.88\textwidth]{\figpath/fig_g3_topology.png}
-\caption{Dashboard Page 3 Visual: Interbank network topology showing participant count distribution ($N=2$ to $N=8$) and correspondent routing modalities.}
+\includegraphics[width=0.88\textwidth]{\figpath/colab_evan_t1_topology.png}
+\caption{Dashboard Page 3 Visual: Cross-Border Corridor Topology and Routing Modality Market Share (Google Colab Cell 21). Left: Modality market share (63.23\% Direct, 32.61\% Indirect, 4.16\% Covered); Right: Institutional participant hops confirming Direct $\iff N=2.0$.}
 \label{fig:dash_p3}
 \end{figure}
 
 \subsubsection{Dashboard Page 4: Settlement Latency \& Queuing Bottlenecks}
 \begin{itemize}
     \item \textbf{Teammate Owner \& Pillar:} Evan Lim (Pillar 2: Topology, Latency \& Traffic) $\bullet$ Google Colab Cells 22--23 (Topic 2: Multi-Hop Latency Queuing Law).
-    \item \textbf{Feature Group Covered:} Feature Group 4 (Settlement Velocity \& Operational Latency).
+    \item \textbf{Feature Group Covered:} Feature Group 4 (Settlement Duration \& Queuing Latency).
     \item \textbf{Reconstructed Business Rule:}
     \begin{equation}
     \text{Median Latency (s)} = 39.0 + \beta_{\text{hop}} \cdot (\text{PARTICIPANT\_COUNT} - 2) + \beta_{\text{FX}} \cdot \mathbb{I}(\text{FX} \ge 2)
     \end{equation}
-    Direct payments settle in a median of 39.0 seconds (Straight-Through Processing). Each intermediary correspondent bank adds $+300\text{--}400$\,s of batch queuing delay. Geographic distance has zero causal impact ($r=0.018, p=0.34$, rejected NEG-01).
+    Settlement latency obeys a closed-form additive delay model: Straight-Through Processing baseline (39\,s), intermediary batch clearing queue delays (+87\,s to +292\,s per institution), and multi-currency foreign exchange batch delays (+280\,s).
     \item \textbf{Top KPI Metric Cards:}
     \begin{enumerate}
-        \item \textbf{STP Baseline (2 Hops):} \textbf{39.0 seconds} median settlement duration
-        \item \textbf{3-Hop Latency:} \textbf{100.0 seconds} ($+61$\,s intermediary delay)
-        \item \textbf{4-Hop Latency:} \textbf{413.0 seconds} ($+313$\,s intermediary delay)
-        \item \textbf{FX Triangulation Penalty:} \textbf{+148 seconds} for $\ge 2$ conversions
-        \item \textbf{Falsified NEG-01:} Physical Distance $r = 0.018$ ($p = 0.34$, 0\% impact)
+        \item \textbf{STP Baseline Execution:} Direct routes ($N=2$) settle in \textbf{39.0 seconds} (IQR: 856\,s).
+        \item \textbf{Intermediary Hop Progression:} 3 Hops = \textbf{126.0\,s} (+87\,s); 4 Hops = \textbf{418.0\,s} (+292\,s); 5 Hops = \textbf{590.0\,s}; 6 Hops = \textbf{796.0\,s}; 7 Hops = \textbf{1,033.0\,s}; 8 Hops = \textbf{1,236.0\,s}.
+        \item \textbf{Multi-Leg FX Conversion Delay:} 0 FX = 47.0\,s; 1 FX = 41.0\,s; 2+ FX (vehicle routing) = \textbf{321.0\,s} (+280\,s batch FX penalty).
+        \item \textbf{Falsified NEG-01 (Rubric 1.3):} Physical distance between originator and beneficiary capital cities exhibits zero correlation with settlement duration ($r = 0.018, p = 0.34$).
+        \item \textbf{Queue Dispersion:} Interquartile range (IQR) widens from 856\,s at 2 hops to 2,398\,s at 8 hops.
     \end{enumerate}
-    \item \textbf{Primary Chart Visual:} Line plot and grouped bar chart illustrating duration scaling as a function of participant institution counts ($N=2$ to $N=6$).
-    \item \textbf{Comparative Baseline Chart:} Grouped bar chart comparing settlement latency across foreign exchange conversion counts ($0, 1, 2+$ steps).
-    \item \textbf{Interactive Filter Hooks:} FX Conversion Count Filter ($0, 1, 2+$), Modality Selector, and Operating Time-of-Day Slicer.
-    \item \textbf{Real-World Banking Rationale:} Telecommunications signals cross the globe in milliseconds. Cross-border payment latency is driven by institutional batch cut-off schedules, nostro ledger reconciliation windows, and automated compliance/sanctions screening at each intermediary bank.
+    \item \textbf{Primary Chart Visual:} End-to-end settlement latency scaling across participant institution hop counts ($N=2$ to $N=8$) alongside FX conversion penalty bars.
+    \item \textbf{Comparative Baseline Chart:} Additive duration waterfall decomposing STP baseline, intermediary batch clearing queues, and multi-currency conversion delays.
+    \item \textbf{Interactive Filter Hooks:} Participant Count Slicer ($2$ to $22$), Currency Conversion Count Toggle ($0, 1, 2+$), and Transaction Type Slicer.
+    \item \textbf{Real-World Banking Rationale:} Swift messages travel across telecommunication fiber in milliseconds. Observed settlement duration reflects operational batch processing windows: intermediary banks execute periodic AML sanctions screening and net-clearing cycles, while currency conversions wait for foreign exchange batch matching.
 \end{itemize}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.88\textwidth]{\figpath/fig_g4_latency.png}
-\caption{Dashboard Page 4 Visual: Settlement latency scaling across participant hops and multi-currency conversion penalties.}
+\includegraphics[width=0.88\textwidth]{\figpath/colab_evan_t2_latency.png}
+\caption{Dashboard Page 4 Visual: Settlement Latency Scaling and FX Delays (Google Colab Cell 23). Left: Latency scaling across participant hops ($N=2$ to $N=8$); Right: Latency penalty associated with multi-leg vehicle currency conversion ($\ge 2$ FX).}
 \label{fig:dash_p4}
 \end{figure}
 
 \subsubsection{Dashboard Page 5: Temporal Rhythms \& Diurnal Cut-off Congestion}
 \begin{itemize}
     \item \textbf{Teammate Owner \& Pillar:} Evan Lim (Pillar 2: Topology, Latency \& Traffic) $\bullet$ Google Colab Cells 24--25 (Topic 3: Peak Traffic \& Cut-off Congestion).
-    \item \textbf{Feature Group Covered:} Feature Group 2 (Temporal Rhythms \& Initiation Timing).
+    \item \textbf{Feature Group Covered:} Feature Group 2 (Temporal Rhythms \& Operating Windows).
     \item \textbf{Reconstructed Business Rule:}
     \begin{equation}
-    \text{Traffic Volume} = f(\text{DayOfWeek}, \text{UTC\_Hour})
+    P(\text{Initiation} \mid \text{Weekday}) = 0.8882, \quad \text{Peak Window} \in [23:00, 01:00]\,\text{UTC}
     \end{equation}
-    85.2\% of payment volume concentrates on Monday through Friday (peaking Friday at 18.4\%; Sunday drops to 5.5\%). Diurnal traffic surges between 23:00 and 01:00 UTC during Asian market opening and European pre-market clearing.
+    Transaction initiation strictly reflects commercial banking operating hours and global RTGS settlement cut-offs. Friday pre-weekend treasury rushes and Monday post-weekend backlog clearing dominate global volumes.
     \item \textbf{Top KPI Metric Cards:}
     \begin{enumerate}
-        \item \textbf{Weekday Concentration:} \textbf{85.2\%} of total network traffic
-        \item \textbf{Friday Volume Peak:} \textbf{18.4\%} (Pre-weekend corporate funding positioning)
-        \item \textbf{Sunday Liquidity Slump:} \textbf{5.5\%} (RTGS commercial clearing shutdown)
-        \item \textbf{Diurnal Peak Window:} \textbf{23:00--01:00 UTC} (Asian morning opening \& European netting)
-        \item \textbf{Diurnal Trough Window:} \textbf{11:00--12:00 UTC} (Americas/Asia commercial gap)
+        \item \textbf{Weekday Concentration:} \textbf{88.82\% of Volume} initiated Monday through Friday.
+        \item \textbf{Friday Volume Peak:} \textbf{18.34\%} (1,833,702 payments, pre-weekend treasury rebalancing rush).
+        \item \textbf{Monday Volume Peak:} \textbf{18.34\%} (1,833,685 payments, post-weekend clearing backlog).
+        \item \textbf{Weekend Liquidity Suspension:} Saturday drops to \textbf{4.35\%} (434,935 payments) and Sunday drops to \textbf{6.84\%} (683,541 payments).
+        \item \textbf{24-Hour Diurnal Peak:} Global initiation surges between \textbf{23:00 and 01:00 UTC} (Asian market open + European pre-market).
     \end{enumerate}
-    \item \textbf{Primary Chart Visual:} Day-of-week volume bar chart displaying transaction volume and percentage shares from Monday through Sunday.
-    \item \textbf{Comparative Baseline Chart:} 24-hour UTC diurnal initiation line curve showing the 23:00--01:00 UTC surge overlaid with international market operating windows.
-    \item \textbf{Interactive Filter Hooks:} Originating Region Filter (APAC, EMEA, Americas), Counterparty Tier Slicer.
-    \item \textbf{Real-World Banking Rationale:} Domestic Real-Time Gross Settlement (RTGS) systems such as Fedwire, CHIPS, TARGET2, and CHAPS operate on rigid business-hour schedules and cease commercial settlement on weekends. Cross-border traffic peaks when major global trading hubs overlap.
+    \item \textbf{Primary Chart Visual:} Day-of-week traffic initiation share alongside the 24-hour UTC diurnal initiation cycle showing the 23:00--01:00 UTC liquidity peak.
+    \item \textbf{Comparative Baseline Chart:} Heatmap of payment initiation volume crossing Day of Week $\times$ 4-hour UTC time blocks.
+    \item \textbf{Interactive Filter Hooks:} Day of Week Selector, Time of Day (UTC) Slicer, and Regional Currency Zone Slicer.
+    \item \textbf{Real-World Banking Rationale:} Domestic RTGS systems (Fedwire, CHAPS, TARGET2) do not process standard commercial payments over weekends. Corporate treasurers initiate payments during business hours to ensure same-day value before daily cut-off windows close.
 \end{itemize}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.88\textwidth]{\figpath/fig_g2_temporal.png}
-\caption{Dashboard Page 5 Visual: Weekly volume concentration (85.2\% weekday share) and 24-hour UTC diurnal initiation curve.}
+\includegraphics[width=0.88\textwidth]{\figpath/colab_evan_t3_temporal.png}
+\caption{Dashboard Page 5 Visual: Temporal Rhythms and Diurnal Cut-off Congestion (Google Colab Cell 25). Left: Day-of-week traffic share showing 88.82\% weekday concentration; Right: 24-hour UTC diurnal initiation cycle showing the 23:00--01:00 UTC peak.}
 \label{fig:dash_p5}
 \end{figure}
 
 \subsubsection{Dashboard Page 6: Routing Modality \& Covered Liquidity Thresholds}
 \begin{itemize}
     \item \textbf{Teammate Owner \& Pillar:} Joy \& Lim Zhi Yin (Pillars 1 \& 3) $\bullet$ Google Colab Cells 12--13 \& Cells 31--32 (Payment Modality \& Settlement Mechanics).
-    \item \textbf{Feature Group Covered:} Feature Group 5 (Routing Modality \& Covered Payments).
+    \item \textbf{Feature Group Covered:} Feature Group 5 (Routing Modalities \& Covered Settlement).
     \item \textbf{Reconstructed Business Rule:}
     \begin{equation}
-    \text{Covered Mode} \implies \text{PARTICIPANT\_COUNT} \ge 3 \quad \land \quad \text{Median USD Premium} = +24.8\%
+    P(\text{Covered} \mid \text{PARTICIPANT\_COUNT} = 2) = 0.0000, \quad \text{Covered Require } N \ge 3
     \end{equation}
-    Covered payments (MT103 customer transfer + MT202 COV liquidity cover) strictly require $\ge 3$ institutions (0.0\% on direct routes) and command a $+24.8\%$ transaction value premium (\$4,516.92 vs \$3,618.95).
+    Covered method routing (MT103 serial paired with MT202 COV) is structurally prohibited on direct corridors and requires multi-institution routing. Direct STP clearing settles in 39\,s, whereas Indirect and Covered clearing take 281\,s and 383\,s median latency.
     \item \textbf{Top KPI Metric Cards:}
     \begin{enumerate}
-        \item \textbf{Covered Median Value:} \textbf{\$4,516.92}
-        \item \textbf{Direct Median Value:} \textbf{\$3,618.95} (Covered has $+24.8\%$ premium)
-        \item \textbf{Indirect Median Value:} \textbf{\$3,631.98}
-        \item \textbf{Direct Covered Share:} \textbf{0.0\%} (Strictly forbidden on $N=2$)
-        \item \textbf{Covered Hop Distribution:} Mean \textbf{3.59 hops} ($N \in [3, 9]$)
+        \item \textbf{Direct Settlement Velocity:} 6,323,280 payments (63.23\%) settle in \textbf{39.0 seconds} median (Mean: 663.3\,s).
+        \item \textbf{Indirect Settlement Latency:} 3,260,758 payments (32.61\%) settle in \textbf{281.0 seconds} median (Mean: 961.7\,s).
+        \item \textbf{Covered Settlement Latency:} 415,962 payments (4.16\%) settle in \textbf{383.0 seconds} median (Mean: 925.2\,s).
+        \item \textbf{Covered Routing Requirement:} Strictly impossible on direct routes ($0.0\%$ on $N=2$), requires $N \ge 3$ institutions.
+        \item \textbf{FX Conversion Latency Surge:} 0 FX = 47.0\,s, 1 FX = 41.0\,s, 2+ FX conversions = \textbf{321.0\,s} ($7.83\times$ latency surge).
     \end{enumerate}
-    \item \textbf{Primary Chart Visual:} Grouped bar chart comparing median transaction values across Direct (\$3,619), Indirect (\$3,632), and Covered (\$4,517) modalities.
-    \item \textbf{Comparative Baseline Chart:} Participant institution count distribution comparing Direct ($N=2$ strictly) vs Indirect vs Covered hop profiles.
-    \item \textbf{Interactive Filter Hooks:} Minimum Transaction Amount Slicer, Corridor Selector.
-    \item \textbf{Real-World Banking Rationale:} Under the cover payment method, the ordering bank must maintain liquidity reserves in a correspondent reimbursement bank. Because tying up capital in reimbursement accounts incurs liquidity and funding costs, banks only utilize the Covered method when transfer amounts are large enough to justify the liquidity allocation.
+    \item \textbf{Primary Chart Visual:} Bar chart of median settlement duration across Direct, Indirect, and Covered clearing types alongside the 2+ FX conversion latency penalty.
+    \item \textbf{Comparative Baseline Chart:} Valuation distribution comparing ticket sizes across Direct, Indirect, and Covered routing modes.
+    \item \textbf{Interactive Filter Hooks:} Modality Selector, Participant Count Filter, and FX Conversion Tier Slicer.
+    \item \textbf{Real-World Banking Rationale:} Under the cover method, the MT103 customer instruction travels serially along the correspondent chain, while liquidity is settled separately via an MT202 COV message through central bank RTGS systems. This avoids tying up bilateral credit lines but introduces operational delays.
 \end{itemize}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.88\textwidth]{\figpath/fig_g5_modality.png}
-\caption{Dashboard Page 6 Visual: Covered routing valuation premium (+24.8\%) and participant institution count threshold ($N \ge 3$).}
+\includegraphics[width=0.88\textwidth]{\figpath/colab_yin_t3_settlement.png}
+\caption{Dashboard Page 6 Visual: Settlement Modality Execution and FX Conversion Impact (Google Colab Cell 32). Left: Median duration across Direct (39\,s), Indirect (281\,s), and Covered (383\,s); Right: Severe latency penalty on 2+ FX conversions (321\,s vs. 41\,s).}
 \label{fig:dash_p6}
 \end{figure}
 
@@ -1104,25 +1104,25 @@ Table~\ref{tab:dashboard_blueprint} presents the structural overview across all 
     \begin{equation}
     P(\text{Token has } \texttt{<business:>} \mid \text{ORDERING\_TYPE} = \text{'C'}) = 0.00000
     \end{equation}
-    Free-text fields generated via Python Faker enforce strict deterministic gating: Consumers never receive business legal suffixes. Accounts linked to European SEPA BICs strictly produce IBAN syntax (51.5\% of global accounts).
+    Free-text fields and semantic tokens adhere to a zero-leakage corporate partition rule: retail consumers never receive corporate entity tokens. Route blind spots (\texttt{CONTINUITY\_QFLAG = 'N'}) nearly triple settlement duration.
     \item \textbf{Top KPI Metric Cards:}
     \begin{enumerate}
-        \item \textbf{Consumer Corporate Leakage:} \textbf{0.0000\%} (Strictly zero)
-        \item \textbf{Corporate Business Tokens:} \textbf{85.20\%} prevalence in Corporate senders
-        \item \textbf{SEPA IBAN Adoption:} \textbf{51.5\%} of global accounts
-        \item \textbf{Proprietary Numerical Accounts:} \textbf{48.5\%} (North America / Asia)
-        \item \textbf{Template Engine:} Localized Python Faker country dictionaries
+        \item \textbf{Observable Continuous Routes (\texttt{QFLAG='Y'}):} \textbf{92.33\% Volume} (9,232,796 payments) settle in \textbf{54.0 seconds} median (2.54 avg hops, 0.070% anomaly rate).
+        \item \textbf{Masked Blind Spot Routes (\texttt{QFLAG='N'}):} \textbf{7.67\% Volume} (767,204 payments) suffer \textbf{155.0 seconds} median duration (\textbf{$2.87\times$ latency penalty}, 3.12 avg hops).
+        \item \textbf{Token Fraud Risk Surge:} Numeric-heavy tokens suffer an anomaly rate of \textbf{0.095\%} vs. 0.063\% for alphanumeric tokens (\textbf{+50.8\% elevated risk})!
+        \item \textbf{Zero Corporate Leakage:} $P(\text{<business:>} \mid \text{Consumer}) = \mathbf{0.00000}$ (Absolute partition between corporate and retail tokens).
+        \item \textbf{SEPA IBAN Adoption:} European accounts strictly generate standardized IBAN masks (\texttt{<iban:...>}, 51.5\% of global accounts).
     \end{enumerate}
-    \item \textbf{Primary Chart Visual:} Grouped bar chart of \texttt{<business:>} token prevalence across Consumer (0.000\%) vs Business (85.20\%) ordering entities.
-    \item \textbf{Comparative Baseline Chart:} Donut chart illustrating global account identifier standards (SEPA IBAN 51.5\% vs Proprietary Numerical Mask 48.5\%).
-    \item \textbf{Interactive Filter Hooks:} Originating Country Filter, Corporate Legal Suffix Filter (\texttt{PLC}, \texttt{LLC}, \texttt{GmbH}, \texttt{Ltd}).
-    \item \textbf{Real-World Banking Rationale:} Financial institutions legally segregate retail individuals from registered corporate entities. Automated payment engines enforce distinct identifier and format rules (ISO 13616 IBAN for SEPA jurisdictions vs Fedwire routing numbers for US accounts).
+    \item \textbf{Primary Chart Visual:} Impact of route opacity (\texttt{CONTINUITY\_QFLAG = 'N'}) on settlement latency (155\,s vs. 54\,s) alongside anomaly prevalence across token structures (+50.8\% risk).
+    \item \textbf{Comparative Baseline Chart:} Corporate token presence probability ($P(\text{Business Token})$) crossing Ordering Entity Type ($B$ vs. $C$).
+    \item \textbf{Interactive Filter Hooks:} Token Profile Selector, Route Continuity Toggle, and Ordering Entity Type Slicer.
+    \item \textbf{Real-World Banking Rationale:} Financial messaging systems use structured ISO 20022 tags to distinguish retail individuals from commercial legal entities. Corporate identifiers contain mandatory legal status tokens (e.g., PLC, LLC, GmbH), while consumer payments are governed by AML threshold controls.
 \end{itemize}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.88\textwidth]{\figpath/fig_g7_tokens.png}
-\caption{Dashboard Page 7 Visual: Zero-leakage corporate token gating ($P=0.0000$) and geographic SEPA IBAN standard distribution.}
+\includegraphics[width=0.88\textwidth]{\figpath/colab_joy_t2_observability.png}
+\caption{Dashboard Page 7 Visual: Route Observability and Token Integrity (Google Colab Cell 15). Left: Latency penalty associated with route opacity (\texttt{CONTINUITY\_QFLAG = 'N'}, 155\,s vs. 54\,s); Right: Elevated anomaly prevalence in numeric-heavy tokens (+50.8\% risk).}
 \label{fig:dash_p7}
 \end{figure}
 
@@ -1132,33 +1132,31 @@ Table~\ref{tab:dashboard_blueprint} presents the structural overview across all 
     \item \textbf{Feature Group Covered:} Feature Group 8 (Injected Anomalies \& Fraud Typologies).
     \item \textbf{Reconstructed Business Rule:}
     \begin{equation}
-    \text{Anomalies} = 7,006 \text{ records } (0.0701\%) \quad \text{governed by deterministic entity \& valuation constraints}
+    N_{\text{anomaly}} = 7,006 \quad (0.0701\% \text{ of 10M records across 6 deterministic behavioural signatures})
     \end{equation}
-    Romance scams originate 100\% from Consumers and trigger 1,558\,s AML holding delays. CEO scams originate 100\% from Businesses and target high amounts (\$20.6k median). Fat-fingers preserve mantissas but multiply values by $10^k$ (up to \$15.66B).
+    Anomalies adhere to closed-form behavioural signatures: Romance Scams are 100\% consumer-initiated and held for 1,558\,s in AML holding queues; CEO Scams are 100\% business-targeted with median transfers of \$20,622; Fat-fingers scale mantissas up to \$15.66B.
     \item \textbf{Top KPI Metric Cards:}
     \begin{enumerate}
-        \item \textbf{Total Anomaly Census:} \textbf{7,006 records} (0.0701\% overall prevalence)
-        \item \textbf{Romance Scams:} \textbf{2,476} ($100\%$ Consumer, mean duration 1,558\,s)
-        \item \textbf{CEO Wire Fraud:} \textbf{945} ($100\%$ Corporate, median value \$20,602)
-        \item \textbf{Fat-Finger Mistakes:} \textbf{1,940} (Mantissa preservation, max \$15.66B)
-        \item \textbf{Duplicate Replays:} \textbf{679} (Replay window $\Delta t \in [30\,\text{s}, 450\,\text{s}]$)
+        \item \textbf{Total Flagged Anomalies:} Exactly \textbf{7,006 records (0.0701\%)} extracted into a zero-loss isolated census table.
+        \item \textbf{Romance Scams (1,180 records):} 100\% Consumer senders, \$1.41M exposure, \textbf{1,558.0 seconds median duration} (AML investigative hold).
+        \item \textbf{CEO Scams (945 records):} 100\% Business senders, \$19.49M exposure, \textbf{\$20,622.79 median ticket}, 40.0\,s median duration (bypasses regular queue).
+        \item \textbf{Fat-Finger Mistakes (1,940 records):} Typographical magnitude scaling up to \textbf{\$15.66 Billion}.
+        \item \textbf{Duplicate Payments (679 records):} Replayed identical hashes within 30--450s window, \$96.65M exposure; Account Replacements (649 records, \$37.20M).
     \end{enumerate}
-    \item \textbf{Primary Chart Visual:} Complete census bar chart of all 6 anomaly typologies by total record count.
-    \item \textbf{Comparative Baseline Chart:} Dual comparison plot: Mean settlement duration (showing Romance AML holds) alongside median transaction size (showing CEO scam spikes vs normal baseline).
-    \item \textbf{Interactive Filter Hooks:} Anomaly Type Dropdown, Counterparty Tier Filter, Replay Window Slicer.
-    \item \textbf{Real-World Banking Rationale:} Financial fraud typologies reflect human behavioral patterns and compliance friction: Romance fraud targets individual consumers whose unusual cross-border transfers trigger AML investigation holds; CEO scams target corporate finance departments with urgent high-value wire transfers; fat-finger errors represent clerical decimal point slips.
+    \item \textbf{Primary Chart Visual:} Complete census breakdown of all 7,006 injected anomalies by category alongside ticket size distortions comparing normal payments against CEO and Romance scams.
+    \item \textbf{Comparative Baseline Chart:} Median settlement duration across anomaly categories highlighting the 1,558-second AML holding delay in Romance scams.
+    \item \textbf{Interactive Filter Hooks:} Anomaly Category Dropdown, Exposure Value Range Slider, and Entity Type Filter.
+    \item \textbf{Real-World Banking Rationale:} Swift Anti-Fraud controls operate multi-stage risk scoring. Romance scams show anomalous payee changes triggering mandatory AML transaction holds (1,558\,s delay), while CEO fraud exploits urgency to bypass standard dual-authorization protocols.
 \end{itemize}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.88\textwidth]{\figpath/fig_g8_anomalies.png}
-\caption{Dashboard Page 8 Visual: Census breakdown of all 7,006 anomalies and deterministic entity conditioning (Consumer vs Business).}
+\includegraphics[width=0.88\textwidth]{\figpath/colab_joy_t3_anomalies.png}
+\caption{Dashboard Page 8 Visual: 100\% Census Anomaly and Fraud Profiling (Google Colab Cell 17). Left: Complete census breakdown of all 7,006 injected anomalies; Right: Ticket size distortion comparing normal payments against CEO and Romance scams.}
 \label{fig:dash_p8}
 \end{figure}
 
-% ==============================================================================
-% SECTION 8: PROPOSED SLIDE NOTES & COMPLETE PRESENTATION SCRIPT
-% ==============================================================================
+
 \section{Proposed Slide Notes, Visual Layouts \& Complete Presentation Script}
 
 This section provides the slide-by-slide production blueprint, visual layout instructions, word-for-word spoken scripts (timed for an 11-minute presentation), pre-emptive judge Q\&A defense responses, and the exact embedded visual charts and vector diagrams for our team's \textbf{15-slide preliminary deck}.
@@ -1361,18 +1359,18 @@ This section provides the slide-by-slide production blueprint, visual layout ins
     \item \textbf{Storyline Role:} Valuation mechanics, institutional counterparty tiers, and closed-form equations.
     \item \textbf{Visual Layout:} Left: Reconstructed rule formula and economic rationale. Right: Dual chart showing median amounts and fitted $\mu$ parameter ladder.
     \item \textbf{Presenter Spoken Script (45 Seconds):}
-    \textit{``Turning to our first feature group: transaction valuation. We discovered that payment sizes follow a segmented Log-Normal distribution with an identical standard deviation of $\sigma = 2.29$ across all corridors. What changes is the location parameter $\mu$, which forms an exact $+2.0$ ladder: consumer remittances have $\mu = 6.0$; corporate payroll and commerce have $\mu = 8.0$; and institutional B2B wholesale settlement has $\mu = 10.0$. Each step up the counterparty ladder multiplies median transaction size by exactly 7.39 times, reflecting commercial purchasing power parity.''}
+    \textit{``Turning to our first feature group: transaction valuation. We discovered that payment sizes follow a segmented Log-Normal distribution with an identical standard deviation of $\sigma = 2.29$ across all corridors. What changes is the location parameter $\mu$, which forms an exact $+2.0$ ladder: consumer remittances have $\mu \approx 6.06$ (median \$463); corporate payroll and disbursements have $\mu \approx 8.04$ (median \$3,119); and institutional B2B wholesale settlement has $\mu \approx 10.04$ (median \$22,888). As demonstrated in our Colab analysis, B2B represents only 22.71\% of volume, but commands an overwhelming 72.54\% of total network value---\$705 Billion! Each step up the ladder multiplies median transaction size by exactly 7.39 times.''}
     \item \textbf{Anticipated Judge Q\&A \& Defense:}
     \begin{itemize}
         \item \textbf{Judge Question:} \textit{``Why are B2C and C2B virtually identical in amount?''}
-        \item \textbf{Authoritative Defense:} \textit{``In real-world commerce, B2C payroll and C2B retail merchant purchases occupy the same economic bracket: monthly salaries and high-value consumer purchases (\$3,100 to \$3,200). The generator reflected this by assigning both tiers an identical location parameter of $\mu \approx 8.0$.''}
+        \item \textbf{Authoritative Defense:} \textit{``In real-world commerce, B2C payroll and C2B retail merchant purchases occupy the same economic bracket: monthly salaries and high-value consumer purchases (\$3,119 to \$3,229). The generator reflected this by assigning both tiers an identical location parameter of $\mu \approx 8.04$.''}
     \end{itemize}
 \end{itemize}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.82\textwidth]{\figpath/fig_entity_amount_distribution.png}
-\caption{Slide 6 Visual: Continuous Log-Normal density curves across counterparty tiers showing exact $+2.0$ discrete shifts.}
+\includegraphics[width=0.85\textwidth]{\figpath/colab_yin_t2_entities.png}
+\caption{Slide 6 Visual: Entity Pair Payment Flows and Value Concentration (Google Colab Cell 30), highlighting B2B commanding 72.54\% of network value (\$705.14B).}
 \label{fig:slide6_vis}
 \end{figure}
 
@@ -1381,18 +1379,18 @@ This section provides the slide-by-slide production blueprint, visual layout ins
     \item \textbf{Storyline Role:} Temporal rhythm analysis, weekday RTGS concentration, and diurnal peak windows.
     \item \textbf{Visual Layout:} Left: Weekday vs. weekend traffic rules. Right: Weekly bar chart and 24-hour UTC diurnal initiation curve.
     \item \textbf{Presenter Spoken Script (45 Seconds):}
-    \textit{``Our second feature group analyzes transaction timing. Payment initiation is strictly non-uniform: 85.2\% of payments occur on weekdays, peaking on Friday at 18.4\%, while Sunday drops to just 5.5\%. Diurnal traffic peaks between 23:00 and 01:00 UTC. This mirrors real-world financial market infrastructures: domestic RTGS systems like Fedwire, CHIPS, and TARGET2 suspend commercial settlement over weekends, while cross-border liquidity peaks as Asian markets open and European banks begin pre-market netting.''}
+    \textit{``Our second feature group analyzes transaction timing. Payment initiation is strictly non-uniform: 88.82\% of payments occur on weekdays, peaking on Friday at 18.34\% (pre-weekend treasury balancing) and Monday at 18.34\% (post-weekend backlog), while weekends drop sharply to 4.35\% on Saturday and 6.84\% on Sunday. Diurnal traffic peaks between 23:00 and 01:00 UTC. This mirrors real-world financial market infrastructures: domestic RTGS systems suspend commercial settlement over weekends, while cross-border liquidity peaks as Asian markets open and European banks begin pre-market netting.''}
     \item \textbf{Anticipated Judge Q\&A \& Defense:}
     \begin{itemize}
         \item \textbf{Judge Question:} \textit{``Why does transaction volume trough around 11:00 UTC?''}
-        \item \textbf{Authoritative Defense:} \textit{``11:00--12:00 UTC corresponds to the end of the Asian banking day before North American commercial centers (New York/Chicago) reach full operating liquidity, creating an operational interbank lull.''}
+        \item \textbf{Authoritative Defense:} \textit{``11:00--13:00 UTC corresponds to the end of the Asian banking day before North American commercial centers (New York/Chicago) reach full operating liquidity, creating an operational interbank lull.''}
     \end{itemize}
 \end{itemize}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.85\textwidth]{\figpath/fig_g2_temporal.png}
-\caption{Slide 7 Visual: Weekly transaction volume and 24-hour diurnal initiation curve.}
+\includegraphics[width=0.85\textwidth]{\figpath/colab_evan_t3_temporal.png}
+\caption{Slide 7 Visual: Weekly transaction volume share (88.82\% weekday concentration) and 24-hour diurnal initiation curve peaking at 23:00--01:00 UTC.}
 \label{fig:slide7_vis}
 \end{figure}
 
@@ -1401,7 +1399,7 @@ This section provides the slide-by-slide production blueprint, visual layout ins
     \item \textbf{Storyline Role:} Interbank network topology, correspondent clearing backbone, and RMA links.
     \item \textbf{Visual Layout:} Left: Direct routing invariant equation and correspondent hub rules. Right: Participant hop count distribution and modality donut chart.
     \item \textbf{Presenter Spoken Script (45 Seconds):}
-    \textit{``In Feature Group 3, we reverse-engineered the interbank network topology. We uncovered an absolute mathematical invariant: Direct routing occurs if and only if participant count equals exactly 2 institutions. Direct settlement represents 63.1\% of volume. The remaining 36.9\% involves multi-hop correspondent clearing through major Tier-1 clearing hubs in New York, London, and Frankfurt. In banking terms, direct routing requires bilateral RMA account keys; when banks lack mutual accounts, they must route through global correspondent clearing intermediaries.''}
+    \textit{``In Feature Group 3, we reverse-engineered the interbank network topology. We uncovered an absolute mathematical invariant: Direct routing occurs if and only if participant count equals exactly 2 institutions. Direct settlement represents 63.23\% of volume, settling in a median of 39.0 seconds. The remaining 36.77\% involves multi-hop correspondent clearing (32.61\% Indirect, 4.16\% Covered) through major Tier-1 clearing hubs in New York, London, and Frankfurt, scaling up to 22 hops in complex corridors.''}
     \item \textbf{Anticipated Judge Q\&A \& Defense:}
     \begin{itemize}
         \item \textbf{Judge Question:} \textit{``What accounts for the longest paths with 10 or more hops?''}
@@ -1411,8 +1409,8 @@ This section provides the slide-by-slide production blueprint, visual layout ins
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.85\textwidth]{\figpath/fig_g3_topology.png}
-\caption{Slide 8 Visual: Participant count distribution and correspondent routing modality breakdown.}
+\includegraphics[width=0.85\textwidth]{\figpath/colab_evan_t1_topology.png}
+\caption{Slide 8 Visual: Cross-Border Corridor Topology and Routing Modality Market Share (Google Colab Cell 21), proving Direct $\iff N=2.0$.}
 \label{fig:slide8_vis}
 \end{figure}
 
@@ -1421,18 +1419,18 @@ This section provides the slide-by-slide production blueprint, visual layout ins
     \item \textbf{Storyline Role:} Settlement velocity deconstruction, Straight-Through Processing, and queueing penalties.
     \item \textbf{Visual Layout:} Left: Additive latency formula. Right: Dual chart of latency vs. participant hops and FX delay penalties.
     \item \textbf{Presenter Spoken Script (45 Seconds):}
-    \textit{``Our fourth feature group deconstructs settlement duration. Total duration is governed by an additive latency formula: direct payments achieve automated Straight-Through Processing with a median latency of just 39 seconds. However, each additional intermediary correspondent institution adds 300 to 400 seconds of batch-clearing delay. Furthermore, transactions requiring two or more foreign exchange conversions suffer an additional 148-second delay due to interbank currency settlement windows.''}
+    \textit{``Our fourth feature group deconstructs settlement duration. Total duration is governed by an additive latency formula: direct payments achieve automated Straight-Through Processing with a median latency of just 39.0 seconds. However, each additional intermediary institution adds 87 to 292 seconds of batch-clearing delay, reaching 1,236 seconds at 8 hops. Furthermore, transactions requiring two or more foreign exchange conversions suffer a 321-second latency---an additional 280-second penalty. Under Rubric 1.3, we rigorously falsified the physical distance hypothesis: geographic distance has zero correlation with duration ($r = 0.018, p = 0.34$).''}
     \item \textbf{Anticipated Judge Q\&A \& Defense:}
     \begin{itemize}
-        \item \textbf{Judge Question:} \textit{``Why is the delay between 2 and 3 hops only 61 seconds, but jumps to 313 seconds at 4 hops?''}
+        \item \textbf{Judge Question:} \textit{``Why is the delay between 2 and 3 hops only 87 seconds, but jumps to 292 seconds at 4 hops?''}
         \item \textbf{Authoritative Defense:} \textit{``A single intermediary often maintains automated straight-through books with both parties. Once a payment chain requires 2 or more intermediaries (4+ hops), the instruction must cross different domestic clearing networks, incurring full interbank batch cut-off delays.''}
     \end{itemize}
 \end{itemize}
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.82\textwidth]{\figpath/fig_duration_waterfall.png}
-\caption{Slide 9 Visual: Additive duration waterfall decomposing STP baseline, hop queuing, and FX delays.}
+\includegraphics[width=0.85\textwidth]{\figpath/colab_evan_t2_latency.png}
+\caption{Slide 9 Visual: Settlement Latency Scaling by Bank Hops and FX Multi-Leg Delays (Google Colab Cell 23).}
 \label{fig:slide9_vis}
 \end{figure}
 
@@ -1441,7 +1439,7 @@ This section provides the slide-by-slide production blueprint, visual layout ins
     \item \textbf{Storyline Role:} Split-messaging mechanics, MT103 vs MT202 COV, and liquidity threshold rules.
     \item \textbf{Visual Layout:} Left: Covered payment trigger rules and economic mechanism. Right: Comparative median amount and institution count bar charts.
     \item \textbf{Presenter Spoken Script (45 Seconds):}
-    \textit{``In Feature Group 5, we examined transaction routing modalities. Covered payments (MT103 paired with MT202 COV) are subject to two strict operational rules: first, they strictly require 3 or more institutions and never occur on direct routes. Second, Covered payments command a 24.8\% higher median transaction value (\$4,517 vs. \$3,619). Economically, banks only deploy cover-method split-messaging when transaction amounts are large enough to justify allocating liquidity reserves in correspondent reimbursement accounts.''}
+    \textit{``In Feature Group 5, we examined transaction routing modalities. Direct settlement executes automated Straight-Through Processing in 39.0 seconds, whereas Indirect and Covered clearing take 281.0 and 383.0 seconds median latency. Covered payments (MT103 paired with MT202 COV) are subject to two strict operational rules: first, they strictly require 3 or more institutions ($0.0\%$ on $N=2$). Second, Covered payments command elevated values. Economically, banks only deploy cover-method split-messaging when transaction amounts justify allocating liquidity reserves in correspondent reimbursement accounts.''}
     \item \textbf{Anticipated Judge Q\&A \& Defense:}
     \begin{itemize}
         \item \textbf{Judge Question:} \textit{``Why can't Covered payments happen on direct routes?''}
@@ -1451,8 +1449,8 @@ This section provides the slide-by-slide production blueprint, visual layout ins
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.85\textwidth]{\figpath/fig_g5_modality.png}
-\caption{Slide 10 Visual: Covered payment valuation premium and institution count profile.}
+\includegraphics[width=0.85\textwidth]{\figpath/colab_yin_t3_settlement.png}
+\caption{Slide 10 Visual: Settlement Modality Latency Execution (Direct 39\,s, Indirect 281\,s, Covered 383\,s) and FX Impact (Google Colab Cell 32).}
 \label{fig:slide10_vis}
 \end{figure}
 
@@ -1461,7 +1459,7 @@ This section provides the slide-by-slide production blueprint, visual layout ins
     \item \textbf{Storyline Role:} Foreign exchange dynamics, vehicle currency triangulation, and reserve currency dominance.
     \item \textbf{Visual Layout:} Left: FX conversion count breakdown rules. Right: Conversion count distribution and top currency market share bar chart.
     \item \textbf{Presenter Spoken Script (45 Seconds):}
-    \textit{``Feature Group 6 investigates foreign exchange. In 10.9\% of cases, zero conversions occur because the currency matches the native corridor. In 58.7\% of cases, a single bilateral conversion occurs. Crucially, 30.4\% of transactions undergo two or more conversions. This reflects global currency vehicle routing: illiquid currency pairs lack bilateral market quotes and must triangulate through USD or EUR, which together command 49.3\% of total network volume.''}
+    \textit{``Feature Group 6 investigates foreign exchange. In 10.87\% of cases, zero conversions occur because the currency matches the native corridor. In 58.96\% of cases, a single bilateral conversion occurs. Crucially, 30.18\% of transactions undergo two or more conversions. This reflects global currency vehicle routing: illiquid currency pairs lack bilateral market quotes and must triangulate through EUR or USD. Together, the EUR and USD reserve duopoly commands 49.02\% of global volume and an overwhelming 59.46\% of total settled network value---\$578 Billion!''}
     \item \textbf{Anticipated Judge Q\&A \& Defense:}
     \begin{itemize}
         \item \textbf{Judge Question:} \textit{``Did transaction size influence how many FX steps occurred?''}
@@ -1471,17 +1469,17 @@ This section provides the slide-by-slide production blueprint, visual layout ins
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.85\textwidth]{\figpath/fig_g6_fx.png}
-\caption{Slide 11 Visual: Currency conversion step breakdown and top settlement currency turnover.}
+\includegraphics[width=0.85\textwidth]{\figpath/colab_yin_t1_currency.png}
+\caption{Slide 11 Visual: Currency Dominance by Volume and Total USD Value Concentration (Google Colab Cell 28).}
 \label{fig:slide11_vis}
 \end{figure}
 
 \subsubsection{Slide 12: Feature Group 7 --- Semantic Token Architecture \& IBAN Gating}
 \begin{itemize}
-    \item \textbf{Storyline Role:} Python Faker reverse-engineering, corporate token gating rule, and account standard syntax.
-    \item \textbf{Visual Layout:} Left: Python Faker corporate token gating rule. Right: Prevalence bar chart of \texttt{<business:>} tokens and account standard donut chart.
+    \item \textbf{Storyline Role:} Free-text token synthesis, zero-leakage corporate gating, and route observability.
+    \item \textbf{Visual Layout:} Left: Zero-leakage probability formula and IBAN regex rules. Right: Token frequency bar chart and route observability latency comparison.
     \item \textbf{Presenter Spoken Script (45 Seconds):}
-    \textit{``Feature Group 7 reverse-engineers the textual tokens synthesized via Python Faker. We uncovered a strict, zero-leakage gating rule: the probability of a Consumer having a corporate token is strictly 0.000\%. Consumers never receive business tokens. For corporate entities, 85.2\% receive business tokens. Furthermore, account identifiers adhere to geographical banking rules: European SEPA institutions generate standard IBAN formats (51.5\% of global accounts), while American and Asian institutions produce proprietary account patterns.''}
+    \textit{``In Feature Group 7, Joy's Kopitiam unraveled the Route Observability and Token Integrity rules. When path tracking is masked with ellipsis blind spots (CONTINUITY\_QFLAG = 'N'), median latency nearly triples from 54.0 to 155.0 seconds due to inter-jurisdictional opacity. Furthermore, numeric-heavy tokens suffer an anomaly rate of 0.095\%---representing a 50.8\% elevated fraud risk compared to standard alphanumeric tokens! Finally, we proved an absolute zero-leakage corporate gating rule: the probability of a Consumer having a corporate token is strictly 0.000\%.''}
     \item \textbf{Anticipated Judge Q\&A \& Defense:}
     \begin{itemize}
         \item \textbf{Judge Question:} \textit{``How does corporate token gating help anti-fraud systems?''}
@@ -1491,8 +1489,8 @@ This section provides the slide-by-slide production blueprint, visual layout ins
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.85\textwidth]{\figpath/fig_g7_tokens.png}
-\caption{Slide 12 Visual: Zero-leakage corporate gating rule and geographic SEPA IBAN distribution.}
+\includegraphics[width=0.85\textwidth]{\figpath/colab_joy_t2_observability.png}
+\caption{Slide 12 Visual: Route Observability Blind Spots (155\,s vs. 54\,s) and Elevated Numeric Token Anomaly Prevalence (Google Colab Cell 15).}
 \label{fig:slide12_vis}
 \end{figure}
 
@@ -1501,7 +1499,7 @@ This section provides the slide-by-slide production blueprint, visual layout ins
     \item \textbf{Storyline Role:} Comprehensive anomaly census, fraud mathematical triggers, and AML screening delays.
     \item \textbf{Visual Layout:} Left: Complete census and mathematical triggers for each anomaly. Right: Exact anomaly counts and entity separation stacked bar chart.
     \item \textbf{Presenter Spoken Script (60 Seconds):}
-    \textit{``Feature Group 8 decodes the rare anomalies, representing exactly 7,006 records out of 10 million (0.0701\%). Each anomaly follows an exact mathematical signature: Romance scams are 100\% Consumer-originated and take an average of 1,558 seconds due to AML investigation holds. CEO scams are 100\% Corporate-originated with elevated median values of \$20,602. Fat-Finger errors preserve the exact original digits but displace the decimal point by factors of 10 or 100, reaching up to \$15.6 Billion. Duplicate payments represent exact replays of account and amount hashes within 450 seconds.''}
+    \textit{``Feature Group 8 decodes the rare anomalies, representing exactly 7,006 records out of 10 million (0.0701\%). Each anomaly follows an exact mathematical signature: Romance scams are 100\% Consumer-originated and take an average of 1,558.0 seconds due to AML investigation holds. CEO scams are 100\% Corporate-originated with elevated median values of \$20,622.79 settling rapidly in 40 seconds. Fat-Finger errors scale normal mantissas up to \$15.66 Billion. Duplicate payments represent exact replays within 450 seconds. By isolating all 7,006 rows, our team achieved an exhaustive 100\% census without sampling error.''}
     \item \textbf{Anticipated Judge Q\&A \& Defense:}
     \begin{itemize}
         \item \textbf{Judge Question:} \textit{``How can you distinguish a Fat-Finger mistake from a legitimate high-value wholesale payment?''}
@@ -1511,8 +1509,8 @@ This section provides the slide-by-slide production blueprint, visual layout ins
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.85\textwidth]{\figpath/fig_anomaly_comparisons.png}
-\caption{Slide 13 Visual: Mean settlement duration (AML holds) and median valuation spikes across fraud typologies.}
+\includegraphics[width=0.85\textwidth]{\figpath/colab_joy_t3_anomalies.png}
+\caption{Slide 13 Visual: 100\% Census Anomaly Breakdown and Ticket Size Distortion (Google Colab Cell 17).}
 \label{fig:slide13_vis}
 \end{figure}
 
