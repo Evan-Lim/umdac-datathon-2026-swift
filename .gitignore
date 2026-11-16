@@ -10,10 +10,10 @@ data/processed/*.csv
 *.zip
 *.tar.gz
 
-# Outputs
-output/dashboards/*.pdf
-output/figures/*.png
-output/figures/*.pdf
+# Outputs (Allow final deliverables and figures)
+# output/dashboards/*.pdf
+# output/figures/*.png
+
 
 # Environments
 .env
@@ -32,5 +32,6 @@ Thumbs.db
 *.log
 *.out
 *.toc
+reports/*.pdf
 page_images/
 
