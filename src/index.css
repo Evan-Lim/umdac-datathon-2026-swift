@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+:root {
+  --md-sys-color-background: #f6f8fb;
+  --md-sys-color-surface: #ffffff;
+  --md-sys-color-surface-low: #f0f4f9;
+  --md-sys-color-surface-container: #e8eef5;
+  --md-sys-color-surface-high: #dde5f0;
+  --md-sys-color-primary: #0b2545;
+  --md-sys-color-primary-accent: #005ac1;
+  --md-sys-color-primary-container: #d8e2ff;
+  --md-sys-color-on-primary-container: #001a41;
+  --md-sys-color-secondary: #006874;
+  --md-sys-color-secondary-container: #e0f2fe;
+  --md-sys-color-outline: #c4c9d4;
+  --md-sys-color-outline-variant: #dde2ec;
+  --md-sys-color-on-surface: #111827;
+  --md-sys-color-on-surface-variant: #475569;
+  --md-sys-color-success: #146c2e;
+  --md-sys-color-warning: #8a5300;
+  --md-sys-color-error: #ba1a1a;
+}
+
+@layer base {
+  body {
+    font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--md-sys-color-background);
+    color: var(--md-sys-color-on-surface);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  .font-display {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  code,
+  pre,
+  .font-mono,
+  .tabular-nums {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Angular Material Design 3 Surface & Elevation Utilities */
+.m3-surface {
+  background-color: var(--md-sys-color-surface);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: 4px;
+}
+
+.m3-surface-tonal {
+  background-color: var(--md-sys-color-surface-low);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: 4px;
+}
+
+.m3-chamfer-top {
+  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 0 100%);
+}
+
+/* Exact 16:9 Widescreen Print & PDF Export Page Geometry */
+@page {
+  size: 13.3333in 7.5in;
+  margin: 0;
+}
+
+@media print {
+  html,
+  body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .print-sheet {
+    width: 1280px !important;
+    height: 720px !important;
+    max-width: 1280px !important;
+    max-height: 720px !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    break-after: page !important;
+    page-break-after: always !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  .print-sheet:last-child {
+    break-after: auto !important;
+    page-break-after: auto !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}

@@ -1,0 +1,4 @@
+/api/overview              /data/overview.json                                200
+/api/export/dashboard.pdf  /output/dashboards/swift_dashboard_m3_revised.pdf  200
+/api/export/slides.pdf     /output/slides/swift_slides_m3_revised.pdf        200
+/*                         /index.html                                        200

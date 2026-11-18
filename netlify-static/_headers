@@ -1,0 +1,11 @@
+/output/dashboards/swift_dashboard_m3_revised.pdf
+  Content-Type: application/pdf
+  Content-Disposition: attachment; filename="swift_payments_m3_dashboard_8pages.pdf"
+
+/output/slides/swift_slides_m3_revised.pdf
+  Content-Type: application/pdf
+  Content-Disposition: attachment; filename="swift_presentation_m3_slides_15pages.pdf"
+
+/data/overview.json
+  Content-Type: application/json; charset=utf-8
+  Cache-Control: public, max-age=300
